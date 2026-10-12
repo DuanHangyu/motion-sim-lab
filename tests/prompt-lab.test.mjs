@@ -18,7 +18,7 @@ test("prompt gallery binds a versioned text input to its actual generated entry"
   const html = await (await fetch(origin + "/prompt-lab/")).text();
   assert.match(html, /查看提示词/);
   assert.match(html, /复制完整提示词/);
-  assert.match(html, /v1\.md/);
+  assert.match(html, /v2\.md/);
   const app = await (await fetch(origin + "/prompt-lab/app.js")).text();
   assert.match(app, /generated\/pendulum-rhythm\/blind-01/);
   const page = await fetch(origin + "/generated/pendulum-rhythm/blind-01/");
@@ -73,4 +73,37 @@ test("both published continuous comparison clips support video range reads", asy
     assert.equal((await r.arrayBuffer()).byteLength, 100);
     assert.match(r.headers.get("content-type"), /video\/mp4/);
   }
+});
+test("lighting refinement keeps physics and distinguishes its prompt from the blind trial", async () => {
+  const root = path.join(base, "site/generated/pendulum-rhythm");
+  assert.deepEqual(
+    await readFile(path.join(root, "refined-01/model.js")),
+    await readFile(path.join(root, "blind-01/model.js")),
+  );
+  const prompt = await (
+    await fetch(origin + "/prompts/pendulum-rhythm/v2.md")
+  ).text();
+  const provenance = await (
+    await fetch(
+      origin + "/generated/pendulum-rhythm/refined-01/PROVENANCE.json",
+    )
+  ).json();
+  assert.equal(
+    createHash("sha256").update(prompt).digest("hex"),
+    provenance.prompt_sha256,
+  );
+  assert.equal(provenance.not_a_new_blind_trial, true);
+  const verdict = await (
+    await fetch(
+      origin + "/prompt-lab/evidence/pendulum-rhythm/refined-01/verdict.json",
+    )
+  ).json();
+  assert.equal(verdict.notANewBlindTrial, true);
+  assert.equal(verdict.promptVersion, "v2");
+  const r = await fetch(
+    origin +
+      "/generated/pendulum-rhythm/refined-01/vendor/three/addons/objects/Reflector.js",
+  );
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get("content-type"), /application\/javascript/);
 });

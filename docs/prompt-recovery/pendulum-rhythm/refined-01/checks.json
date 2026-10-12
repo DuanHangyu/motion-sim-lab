@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12T08:16:48.148Z",
+  "checks": [
+    {
+      "name": "Original blind files preserved and physics file identical",
+      "pass": true,
+      "detail": {
+        "unchangedFiles": 44
+      }
+    },
+    {
+      "name": "Eighty-one motion samples unchanged by new lighting",
+      "pass": true,
+      "detail": {
+        "samples": 81,
+        "maxAngleDifference": 0
+      }
+    },
+    {
+      "name": "Real reflection and all instrument views render correctly",
+      "pass": true
+    },
+    {
+      "name": "Direct bob click and dial drag remain usable",
+      "pass": true
+    },
+    {
+      "name": "Normal playback clock and local rendering measurement",
+      "pass": true,
+      "detail": {
+        "renderFps": 60.20006336653879,
+        "modelClockRatio": 1.003349477177493,
+        "browser": "154.0.8037.98",
+        "scope": "Single local Chrome ANGLE Metal run, 1440x1020"
+      }
+    },
+    {
+      "name": "Mobile rendering and touch lengths work with smaller reflection target",
+      "pass": true
+    },
+    {
+      "name": "No shader, page or HTTP failures",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

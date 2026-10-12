@@ -31,7 +31,8 @@
 
 新增 **[摆的节律提示词实验室](http://127.0.0.1:4173/prompt-lab/)**：一键查看、复制或下载完整提示词，操作文字生成版，切换原版参考与左右对照，查看真实连续播放录像和评价。
 
-- [完整主提示词 v1](site/prompts/pendulum-rhythm/v1.md)
+- [当前完整提示词 v2](site/prompts/pendulum-rhythm/v2.md)与[光效改进演示](site/generated/pendulum-rhythm/refined-01/)（参考反馈后修饰，尚未重新盲测）
+- [初次独立盲测主提示词 v1](site/prompts/pendulum-rhythm/v1.md)
 - [对应独立生成源码 blind-01](site/generated/pendulum-rhythm/blind-01/)
 - [盲测方法与结果](docs/prompt-recovery/pendulum-rhythm/REPORT.md)
 - [完整作品清单与后续计划](docs/prompt-recovery/README.md)

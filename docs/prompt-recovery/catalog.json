@@ -382,7 +382,15 @@
       "report_path": "docs/prompt-recovery/pendulum-rhythm/REPORT.md",
       "generated_path": "site/generated/pendulum-rhythm/blind-01/",
       "overall_close": true,
-      "visual_limitations": "metal/glass/floor reflection and room presentation differ"
+      "visual_limitations": "metal/glass/floor reflection and room presentation differ",
+      "latest_refinement": {
+        "revision": "refined-01",
+        "prompt_version": "v2",
+        "prompt_path": "site/prompts/pendulum-rhythm/v2.md",
+        "demo_path": "site/generated/pendulum-rhythm/refined-01/",
+        "new_blind_trial": false,
+        "report_path": "docs/prompt-recovery/pendulum-rhythm/refined-01/REPORT.md"
+      }
     },
     {
       "slug": "rocket-nozzle",

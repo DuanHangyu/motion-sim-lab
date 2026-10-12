@@ -27,7 +27,7 @@
     <main>
       <section class="intro">
         <div>
-          <div class="eyebrow">01 / 原理仿真 · 独立生成实验</div>
+          <div class="eyebrow">01 / 原理仿真 · 提示词与效果迭代</div>
           <h1>摆的节律<span>Pendulum Rhythm</span></h1>
           <p>
             从同时释放到逐渐错相，再到重新相遇。操作三维实验，查看生成它的完整提示词。
@@ -38,21 +38,25 @@
           ><button id="copy-prompt">复制完整提示词</button
           ><a
             class="button"
-            href="../prompts/pendulum-rhythm/v1.md"
-            download="pendulum-rhythm-v1.md"
+            id="download-prompt"
+            href="../prompts/pendulum-rhythm/v2.md"
+            download="pendulum-rhythm-v2.md"
             >下载提示词</a
           >
         </div>
       </section>
       <div class="status">
         <span id="status-label">正在读取测试记录</span
-        ><span>v1 · 独立盲测 01</span
-        ><span>文字输入 → 空目录生成 → 封存 → 原版对照</span>
+        ><span id="revision-label">v2 · 光效改进版</span
+        ><span id="workflow-label">参考反馈 → 光效修饰</span>
       </div>
       <section class="lab">
         <div class="bar">
           <div class="tabs" role="group" aria-label="演示选择">
-            <button data-mode="generated" aria-pressed="true">独立生成版</button
+            <button data-mode="refined" aria-pressed="true">
+              光效改进版 v2</button
+            ><button data-mode="generated" aria-pressed="false">
+              盲测初版 v1</button
             ><button data-mode="reference" aria-pressed="false">原版参考</button
             ><button data-mode="compare" aria-pressed="false">
               左右交互对照
@@ -60,7 +64,7 @@
           </div>
           <a
             id="open-scene"
-            href="../generated/pendulum-rhythm/blind-01/"
+            href="../generated/pendulum-rhythm/refined-01/"
             target="_blank"
             rel="noopener"
             >全屏操作 ↗</a
@@ -84,8 +88,9 @@
           ><span id="sync-message" role="status">等待两侧加载</span>
         </div>
         <p class="caption">
-          原版参考来自恢复的前端作品，保留 Ryan Sael
-          的署名。独立生成版只获得本文字提示词；视觉与交互差距见下方评价。
+          原版参考来自恢复的前端作品，保留 Ryan Sael 的署名。v1
+          是只获得文字输入的独立盲测；v2
+          是看过参考后调整的光效版，尚未做新一轮独立盲测。
         </p>
       </section>
       <section class="review">
@@ -112,7 +117,7 @@
             ></video>
           </figure>
           <figure>
-            <figcaption>文字提示词独立生成</figcaption>
+            <figcaption id="candidate-caption">光效改进版 · v2</figcaption>
             <video
               id="candidate-video"
               controls
@@ -134,7 +139,10 @@
         <div id="rating-grid" class="rating-grid"></div>
         <div class="report-links">
           <button id="show-report">查看完整评价</button
-          ><a href="./evidence/pendulum-rhythm/report.md">评价文件</a
+          ><a
+            id="evaluation-link"
+            href="./evidence/pendulum-rhythm/refined-01/report.md"
+            >评价文件</a
           ><a href="./evidence/pendulum-rhythm/freeze.json">生成结果封存记录</a>
         </div>
       </section>
@@ -150,7 +158,8 @@
         </div>
         <p>
           <a
-            href="https://github.com/DuanHangyu/motion-sim-lab/tree/main/site/generated/pendulum-rhythm/blind-01"
+            id="source-link"
+            href="https://github.com/DuanHangyu/motion-sim-lab/tree/main/site/generated/pendulum-rhythm/refined-01"
             target="_blank"
             rel="noopener"
             >对应演示源码 ↗</a
@@ -166,7 +175,7 @@
       </section>
     </main>
     <footer>
-      Motion Sim Lab · 提示词版本与演示轮次一一对应 · 本场景无需业务后端
+      Motion Sim Lab · 独立盲测与参考改进分别记录 · 本场景无需业务后端
     </footer>
     <dialog id="text-dialog">
       <div class="dialog-head">

@@ -151,6 +151,7 @@ p {
 }
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 .tabs button {

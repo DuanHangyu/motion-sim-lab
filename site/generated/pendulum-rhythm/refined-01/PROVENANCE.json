@@ -1,0 +1,13 @@
+{
+  "revision": "refined-01",
+  "type": "reference-informed lighting refinement",
+  "base": "blind-01",
+  "not_a_new_blind_trial": true,
+  "prompt_version": "v2",
+  "prompt_sha256": "c045f4b21cdb1af98f4d94b634fc4ad2fb494b00b9b1298ed5e8b339e9c6c456",
+  "physics_model_unchanged": true,
+  "documentation": [
+    "https://threejs.org/docs/pages/Reflector.html",
+    "https://threejs.org/docs/pages/MeshPhysicalMaterial.html"
+  ]
+}
