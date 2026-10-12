@@ -40,7 +40,8 @@ const labs = entries.filter(lab => lab.status === 'live');
 if (labs.length !== 22) throw new Error('Unexpected WeduLab catalog size');
 await mkdir(path.join(target, 'previews'), { recursive: true });
 for (const lab of labs) {
-  await writeFile(path.join(target, 'previews', lab.id+'.svg'), previews[lab.preview](color(lab.subject)));
+  // The upstream previews were inline SVG; standalone image files need xmlns.
+  await writeFile(path.join(target, 'previews', lab.id+'.svg'), previews[lab.preview](color(lab.subject)).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" '));
 }
 // Each experiment has a real entry file, so refreshes and shared deep links work.
 for (const route of ['/', ...labs.map(lab => lab.href)]) {

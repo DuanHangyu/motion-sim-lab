@@ -25,7 +25,7 @@ test('all 22 teaching labs have mounted deep links and namespaced dependencies',
       assert.match(html, /src="\/motion-sim-lab\/wedulab\/src\/main.js"/);
       const preview = await fetch(origin+'/wedulab/previews/'+lab.id+'.svg');
       assert.equal(preview.status, 200);
-      assert.match(await preview.text(), /<svg/);
+      assert.match(await preview.text(), /<svg xmlns="http:\/\/www.w3.org\/2000\/svg"/);
     }
     const runtime = await (await fetch(origin+'/wedulab/src/core/runtime.js')).text();
     assert.match(runtime, /return \(\(document.querySelector/);

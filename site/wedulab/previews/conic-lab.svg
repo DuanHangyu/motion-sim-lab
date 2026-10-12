@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
       <path d="M60 85h200M160 20v130" stroke="#2a302e" stroke-opacity=".25" stroke-width="1"/>
       <ellipse cx="160" cy="85" rx="92" ry="54" stroke="#2a302e" stroke-width="1.8"/>
       <g stroke="#c9800f" stroke-width="1.4" stroke-opacity=".75">

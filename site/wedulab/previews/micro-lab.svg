@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
       <defs><clipPath id="mcv"><circle cx="196" cy="85" r="66"/></clipPath></defs>
       <circle cx="196" cy="85" r="70" fill="#0b0c0e" stroke="#5aa62b" stroke-opacity=".5" stroke-width="2"/>
       <circle cx="196" cy="85" r="66" fill="#efe9d8"/>

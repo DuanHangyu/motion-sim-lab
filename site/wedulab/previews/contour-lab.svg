@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <g stroke="#1478c9">
         <path d="M40 132 C70 70 110 38 150 44 C190 50 205 80 238 70 C262 62 282 96 280 132 Z" stroke-opacity=".25" stroke-width="1.6"/>
         <path d="M66 124 C88 80 118 56 148 60 C176 64 190 90 222 84 C246 80 262 104 258 124 Z" stroke-opacity=".4" stroke-width="1.6"/>

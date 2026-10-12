@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
       <path d="M90 150L150 46L210 150z" fill="#c9800f" fill-opacity=".55"/>
       <path d="M120 98L180 98L150 150z" fill="#fffefb"/>
       <path d="M105 124L135 124L120 150zM165 124L195 124L180 150zM135 72L165 72L150 98z" fill="#fffefb"/>

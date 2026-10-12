@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
       <path d="M40 92h250M86 20v140" stroke="#2a302e" stroke-opacity=".3" stroke-width="1"/>
       <circle cx="86" cy="92" r="34" stroke="#2a302e" stroke-width="1.4"/>
       <g><animateTransform attributeName="transform" type="rotate" values="0 86 92;-360 86 92" dur="8s" repeatCount="indefinite"/>

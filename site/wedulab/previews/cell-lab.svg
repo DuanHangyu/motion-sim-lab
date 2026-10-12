@@ -1,5 +1,5 @@
 
-    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
       <path d="M160 18c58 0 92 30 92 68 0 40-38 66-94 66-54 0-88-28-88-66 0-40 34-68 90-68z" fill="#5aa62b" fill-opacity=".1" stroke="#5aa62b" stroke-width="2"/>
       <circle cx="140" cy="82" r="26" fill="#9d84e6" fill-opacity=".28" stroke="#9d84e6" stroke-width="1.6"/>
       <circle cx="134" cy="76" r="8" fill="#5b2fa6" fill-opacity=".7"/>
