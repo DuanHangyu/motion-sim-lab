@@ -141,6 +141,7 @@ let tag = "";
 let cat = "Worlds",
   sort = cat ? "views" : "date";
 const CATP = {
+  "教学实验": "/education",
   Explainers: "/explainers",
   Worlds: "/worlds",
   Data: "/data",

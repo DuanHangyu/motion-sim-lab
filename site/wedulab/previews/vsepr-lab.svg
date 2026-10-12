@@ -1,0 +1,15 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round">
+      <g>
+        <animateTransform attributeName="transform" type="rotate" values="0 160 88;360 160 88" dur="18s" repeatCount="indefinite"/>
+        <path d="M160 88 L160 34 M160 88 L112 116 M160 88 L208 116" stroke="#0f9e63" stroke-width="5" stroke-opacity=".55"/>
+        <ellipse cx="160" cy="88" rx="64" ry="20" stroke="#0f9e63" stroke-opacity=".3" stroke-width="1.4" stroke-dasharray="3 5"/>
+        <circle cx="160" cy="34" r="12" fill="#f4f2ee" stroke="#c9c3b8" stroke-width="1.4"/>
+        <circle cx="112" cy="116" r="12" fill="#f4f2ee" stroke="#c9c3b8" stroke-width="1.4"/>
+        <circle cx="208" cy="116" r="12" fill="#f4f2ee" stroke="#c9c3b8" stroke-width="1.4"/>
+      </g>
+      <path d="M160 88 C140 118 150 150 160 154 C170 150 180 118 160 88 Z" fill="#8b7fd6" fill-opacity=".28" stroke="#8b7fd6" stroke-opacity=".6" stroke-width="1.2">
+        <animate attributeName="fill-opacity" values=".18;.38;.18" dur="2.4s" repeatCount="indefinite"/></path>
+      <circle cx="160" cy="88" r="17" fill="#0f9e63"/>
+      <circle cx="154" cy="82" r="5" fill="#fff" opacity=".35"/>
+    </svg>

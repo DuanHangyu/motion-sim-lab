@@ -1,0 +1,19 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+      <defs><clipPath id="mcv"><circle cx="196" cy="85" r="66"/></clipPath></defs>
+      <circle cx="196" cy="85" r="70" fill="#0b0c0e" stroke="#5aa62b" stroke-opacity=".5" stroke-width="2"/>
+      <circle cx="196" cy="85" r="66" fill="#efe9d8"/>
+      <g clip-path="url(#mcv)" stroke="#b07a2c" stroke-opacity=".75" stroke-width="1.6" fill="#e8c98a" fill-opacity=".45">
+        <path d="M120 40l40-14 44 6 40-10 40 8v34l-40 6-44-4-40 8-40-6z"/>
+        <path d="M120 74l40 6 44-8 40 6 40-6v34l-40 8-44-6-40 6-40-8z"/>
+        <path d="M120 110l40 8 44-6 40 8 40-6v40H120z"/>
+        <g><animateTransform attributeName="transform" type="translate" values="0 0;-8 3;0 0" dur="7s" repeatCount="indefinite"/>
+        <ellipse cx="150" cy="56" rx="7" ry="5" fill="#7a4a14" fill-opacity=".85" stroke="none"/>
+        <ellipse cx="226" cy="92" rx="7" ry="5" fill="#7a4a14" fill-opacity=".85" stroke="none"/>
+        <ellipse cx="190" cy="128" rx="7" ry="5" fill="#7a4a14" fill-opacity=".85" stroke="none"/></g>
+      </g>
+      <path d="M126 85h62" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+      <path d="M44 140h52M70 140v-18M58 122h24l-4-14H62zM70 108V58M62 58h16l-2-22H64z" stroke="#5aa62b" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M80 70c14 4 18 22 12 36" stroke="#5aa62b" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="70" cy="116" r="3" fill="#5aa62b"><animate attributeName="opacity" values=".4;1;.4" dur="2.4s" repeatCount="indefinite"/></circle>
+    </svg>

@@ -1,0 +1,10 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round">
+      <path d="M40 26H120" stroke="#2a302e" stroke-width="2"/>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;0 18;0 0" dur="1.6s" repeatCount="indefinite"/>
+        <path d="M80 26l8 4l-8 4l8 4l-8 4l8 4l-8 4l8 4l-8 4l8 4l-8 4" stroke="#2a302e" stroke-width="1.3" stroke-linejoin="round"/>
+        <rect x="70" y="66" width="20" height="22" rx="3" fill="#c9800f"/></g>
+      <circle cx="230" cy="70" r="12" stroke="#0092c7" stroke-width="1.6" stroke-opacity="0.8"><animate attributeName="r" values="12;34" dur="1.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.8;0.58" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="230" cy="70" r="34" stroke="#0092c7" stroke-width="1.6" stroke-opacity="0.5800000000000001"><animate attributeName="r" values="34;56" dur="1.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.5800000000000001;0.36" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="230" cy="70" r="56" stroke="#0092c7" stroke-width="1.6" stroke-opacity="0.36000000000000004"><animate attributeName="r" values="56;78" dur="1.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.36000000000000004;0.13999999999999996" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="230" cy="70" r="5" fill="#0092c7"/>
+      <path d="M20 140c15-22 30-22 45 0s30 22 45 0 30-22 45 0 30 22 45 0 30-22 45 0 30 22 45 0" stroke="#0092c7" stroke-width="2.4" stroke-dasharray="320" stroke-dashoffset="320"><animate attributeName="stroke-dashoffset" values="320;0" dur="3s" repeatCount="indefinite"/></path>
+    </svg>

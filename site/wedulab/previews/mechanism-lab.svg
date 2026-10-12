@@ -1,0 +1,18 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round">
+      <path d="M70 105 L112 85" stroke="#3a3f46" stroke-width="6"/>
+      <path d="M112 85 L150 105" stroke="#e0483c" stroke-width="6"/>
+      <path d="M150 105 L176 105" stroke="#c2362b" stroke-width="4" stroke-dasharray="4 5">
+        <animate attributeName="stroke-dashoffset" from="0" to="-18" dur="1s" repeatCount="indefinite"/></path>
+      <circle cx="70" cy="105" r="12" fill="#3a3f46"/>
+      <circle cx="112" cy="85" r="14" fill="#3a3f46"/>
+      <circle cx="112" cy="55" r="11" fill="#e0483c"/>
+      <circle cx="150" cy="105" r="11" fill="#e0483c"/>
+      <circle cx="200" cy="105" r="22" fill="#ffd27a" opacity=".55"><animate attributeName="opacity" values=".25;.7;.25" dur="2s" repeatCount="indefinite"/></circle>
+      <circle cx="200" cy="105" r="11" fill="#e0483c"/>
+      <circle cx="238" cy="88" r="13" fill="#3a3f46"/>
+      <path d="M200 105 L238 88" stroke="#e0483c" stroke-width="6"/>
+      <path d="M196 84 C186 50 140 40 120 70" stroke="#c2362b" stroke-width="2.6"/>
+      <path d="M120 70 l-1 -10 M120 70 l9 -4" stroke="#c2362b" stroke-width="2.6"/>
+      <text x="200" y="140" fill="#0f9e63" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" text-anchor="middle">¹⁸O</text>
+    </svg>

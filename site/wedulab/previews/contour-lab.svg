@@ -1,0 +1,14 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g stroke="#1478c9">
+        <path d="M40 132 C70 70 110 38 150 44 C190 50 205 80 238 70 C262 62 282 96 280 132 Z" stroke-opacity=".25" stroke-width="1.6"/>
+        <path d="M66 124 C88 80 118 56 148 60 C176 64 190 90 222 84 C246 80 262 104 258 124 Z" stroke-opacity=".4" stroke-width="1.6"/>
+        <path d="M92 116 C108 88 128 72 148 76 C168 80 176 98 204 96 C226 94 238 108 234 116 Z" stroke-opacity=".6" stroke-width="1.8"/>
+        <path d="M118 108 C128 94 140 88 150 90 C162 92 164 104 150 108 Z" stroke-width="2.2"/>
+        <path d="M188 106 C194 100 206 98 214 104 C210 110 196 112 188 106 Z" stroke-width="2"/>
+      </g>
+      <path d="M20 150 H300" stroke="#1478c9" stroke-opacity=".3" stroke-width="1.4" stroke-dasharray="4 5"/>
+      <path d="M20 90 H300" stroke="#0092c7" stroke-width="1.6" stroke-opacity=".7">
+        <animate attributeName="d" values="M20 130 H300;M20 60 H300;M20 130 H300" dur="5s" repeatCount="indefinite"/></path>
+      <path d="M142 90 l6 -7 6 7" fill="#c9800f" stroke="none"/>
+    </svg>

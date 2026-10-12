@@ -1,0 +1,17 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none">
+      <path d="M160 18c58 0 92 30 92 68 0 40-38 66-94 66-54 0-88-28-88-66 0-40 34-68 90-68z" fill="#5aa62b" fill-opacity=".1" stroke="#5aa62b" stroke-width="2"/>
+      <circle cx="140" cy="82" r="26" fill="#9d84e6" fill-opacity=".28" stroke="#9d84e6" stroke-width="1.6"/>
+      <circle cx="134" cy="76" r="8" fill="#5b2fa6" fill-opacity=".7"/>
+      <path d="M170 60c14 8 20 22 18 40M176 54c18 10 26 28 22 50" stroke="#3fb8cc" stroke-width="2.2" stroke-linecap="round" stroke-opacity=".8"/>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;6 -3;0 0" dur="4s" repeatCount="indefinite"/>
+        <rect x="200" y="96" width="30" height="13" rx="6.5" fill="#ff8a66" fill-opacity=".85" transform="rotate(-24 215 102)"/>
+        <path d="M206 103l4-5 4 6 4-6 4 6" stroke="#fff" stroke-opacity=".7" stroke-width="1.2" fill="none" transform="rotate(-24 215 102)"/></g>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;-5 4;0 0" dur="5s" repeatCount="indefinite"/>
+        <rect x="96" y="118" width="26" height="11" rx="5.5" fill="#ff8a66" fill-opacity=".75" transform="rotate(18 109 123)"/></g>
+      <path d="M200 64c8-3 16-3 22 2M198 70c10-3 20-2 27 4M199 76c9-2 17 0 23 5" stroke="#f2a83c" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="232" cy="62" r="3.2" fill="#ffd98a"><animate attributeName="cx" values="226;246;226" dur="3s" repeatCount="indefinite"/><animate attributeName="cy" values="66;46;66" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="104" cy="56" r="5" fill="#e85f9e" fill-opacity=".8"/>
+      <circle cx="186" cy="128" r="4" fill="#e85f9e" fill-opacity=".7"/>
+      <g fill="#f6e3a6" fill-opacity=".7"><circle cx="118" cy="104" r="1.4"/><circle cx="168" cy="40" r="1.4"/><circle cx="214" cy="126" r="1.4"/><circle cx="96" cy="92" r="1.4"/><circle cx="160" cy="118" r="1.4"/></g>
+    </svg>

@@ -103,7 +103,7 @@ export const server = http.createServer(async (req,res) => {
       try { info=await stat(file); } catch { return json(res,404,{error:'Not found',path:pathname}); }
     }
     if (info.isDirectory()) {
-      const isCategory = ['explainers','worlds','data','design','play','virtual-tour','newsletter'].includes(pathname.replaceAll('/',''));
+      const isCategory = ['explainers','worlds','data','design','play','virtual-tour','education','newsletter'].includes(pathname.replaceAll('/',''));
       if (!pathname.endsWith('/') && !isCategory) {res.writeHead(308,{Location:publicBasePath+pathname+'/'+url.search});return res.end();}
       file = path.join(file,'index.html'); info=await stat(file);
     }

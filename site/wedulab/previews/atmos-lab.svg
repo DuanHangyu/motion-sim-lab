@@ -1,0 +1,15 @@
+
+    <svg viewBox="0 0 320 170" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round">
+      <path d="M40 140 H280" stroke="#1478c9" stroke-opacity=".35" stroke-width="1.6"/>
+      <ellipse cx="160" cy="85" rx="95" ry="45" stroke="#1478c9" stroke-opacity=".25" stroke-width="1.4"/>
+      <ellipse cx="160" cy="85" rx="95" ry="45" stroke="#1478c9" stroke-width="2.2" stroke-dasharray="10 16">
+        <animate attributeName="stroke-dashoffset" from="0" to="-52" dur="1.6s" repeatCount="indefinite"/></ellipse>
+      <path d="M78 110 v-50" stroke="#c9800f" stroke-width="2.4" stroke-dasharray="4 6">
+        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/></path>
+      <path d="M242 60 v50" stroke="#0092c7" stroke-width="2.4" stroke-dasharray="4 6">
+        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/></path>
+      <circle cx="78" cy="148" r="6" fill="#c9800f" opacity=".8"/>
+      <circle cx="242" cy="148" r="6" fill="#0092c7" opacity=".8"/>
+      <text x="78" y="36" fill="#d1372c" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" text-anchor="middle">H</text>
+      <text x="242" y="36" fill="#0092c7" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" text-anchor="middle">L</text>
+    </svg>
