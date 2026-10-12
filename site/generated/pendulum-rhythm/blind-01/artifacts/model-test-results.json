@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-10-12T07:25:18.659Z",
+  "checks": [
+    {
+      "name": "default finite bob periods and beat",
+      "status": "pass"
+    },
+    {
+      "name": "measured cached nonlinear oscillation period grows with amplitude",
+      "status": "pass"
+    },
+    {
+      "name": "amplitude increases nonlinear period",
+      "status": "pass"
+    },
+    {
+      "name": "RK4 fixed sample independence from render cadence",
+      "status": "pass"
+    },
+    {
+      "name": "5:4 numerically corrected ratio",
+      "status": "pass"
+    },
+    {
+      "name": "3:2 numerically corrected ratio",
+      "status": "pass"
+    },
+    {
+      "name": "impulse deterministic replay and future branch rewrite",
+      "status": "pass"
+    },
+    {
+      "name": "wave 15 tuned nonlinear periods and approximate 60s reunion",
+      "status": "pass"
+    },
+    {
+      "name": "exact finite-bob matched periods stay in step without numerical event chatter",
+      "status": "pass"
+    },
+    {
+      "name": "extremes and equal periods remain finite",
+      "status": "pass"
+    }
+  ],
+  "defaultPeriods": [
+    1.226636101386896,
+    0.9711523045403103
+  ],
+  "waveCoherence60": [
+    0.999952706510745,
+    0.9998108340470483,
+    0.9995744066195109,
+    0.9992434642404588
+  ]
+}

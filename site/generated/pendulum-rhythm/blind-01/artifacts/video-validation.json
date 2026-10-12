@@ -1,0 +1,158 @@
+{
+  "timestamp": "2026-10-12T07:26:23.029Z",
+  "description": "A continuous real browser recording; 1x clock, no scrubbing, no cuts, no time remapping; initial navigation and setup are retained.",
+  "samples": [
+    {
+      "wallSeconds": 0.007636625000000095,
+      "time": 0.08339999999999997,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.25422826086081246,
+        -0.23968198474891947
+      ],
+      "renderCount": 17
+    },
+    {
+      "wallSeconds": 2.0885672090000003,
+      "time": 2.1165999999999987,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.04269481826442953,
+        -0.11939185539365997
+      ],
+      "renderCount": 139
+    },
+    {
+      "wallSeconds": 4.09535775,
+      "time": 4.166499999999997,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.2208066904362736,
+        0.06962691657056294
+      ],
+      "renderCount": 262
+    },
+    {
+      "wallSeconds": 6.0985675420000005,
+      "time": 6.1665000000000205,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.2717458402731084,
+        0.16229221272922734
+      ],
+      "renderCount": 382
+    },
+    {
+      "wallSeconds": 8.12828025,
+      "time": 8.199800000000037,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.10883072104973615,
+        0.25789944864406755
+      ],
+      "renderCount": 504
+    },
+    {
+      "wallSeconds": 10.131999375000001,
+      "time": 10.199700000000004,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.1102767732146768,
+        0.2735053304278979
+      ],
+      "renderCount": 624
+    },
+    {
+      "wallSeconds": 12.1722585,
+      "time": 12.23289999999997,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.2688028268023447,
+        0.22281555265876127
+      ],
+      "renderCount": 746
+    },
+    {
+      "wallSeconds": 14.177303084000002,
+      "time": 14.249499999999937,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.19997151472168503,
+        0.12373528256126512
+      ],
+      "renderCount": 867
+    },
+    {
+      "wallSeconds": 16.179852250000003,
+      "time": 16.2493999999999,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.0014797209437128174,
+        0.02607111014620179
+      ],
+      "renderCount": 987
+    },
+    {
+      "wallSeconds": 18.210570459,
+      "time": 18.282699999999828,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.22488793275165644,
+        -0.12838061645029572
+      ],
+      "renderCount": 1109
+    },
+    {
+      "wallSeconds": 20.276936999999997,
+      "time": 20.31599999999978,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        0.24573238693981095,
+        -0.23775874539453895
+      ],
+      "renderCount": 1231
+    },
+    {
+      "wallSeconds": 22.292467583999997,
+      "time": 22.365799999999734,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.02136304057228055,
+        -0.26053204469804053
+      ],
+      "renderCount": 1354
+    },
+    {
+      "wallSeconds": 24.296425,
+      "time": 24.365799999999695,
+      "playing": true,
+      "speed": 1,
+      "angles": [
+        -0.18027877550344723,
+        -0.21968903873775428
+      ],
+      "renderCount": 1474
+    }
+  ],
+  "measuredFramesPerSecond": 59.986524543960506,
+  "measuredModelSecondsPerWallSecond": 0.9997369825574799,
+  "browserVersion": "154.0.8037.98",
+  "errors": [],
+  "viewport": {
+    "width": 1440,
+    "height": 1020
+  },
+  "selfRepairCount": 4
+}

@@ -1,0 +1,69 @@
+{
+  "createdAt": "2026-10-12T07:33:02.466Z",
+  "checks": [
+    {
+      "name": "Real bob picking applies an impulse",
+      "pass": true,
+      "detail": {
+        "point": {
+          "type": "bob",
+          "index": 0,
+          "x": 553.7925377435556,
+          "y": 546.6925344557311
+        },
+        "push": [
+          {
+            "time": 1.2,
+            "index": 0,
+            "deltaOmega": 0.48
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real vertical bob drag changes length",
+      "pass": true,
+      "detail": {
+        "before": [
+          0.369,
+          0.231
+        ],
+        "after": [
+          0.32700001831054687,
+          0.231
+        ]
+      }
+    },
+    {
+      "name": "Real instrument dial drag changes length",
+      "pass": true,
+      "detail": {
+        "before": [
+          0.369,
+          0.231
+        ],
+        "after": [
+          0.37,
+          0.231
+        ]
+      }
+    },
+    {
+      "name": "Real glass time-band drag scrubs model history",
+      "pass": true,
+      "detail": {
+        "before": 1.2,
+        "after": 2.0125
+      }
+    },
+    {
+      "name": "Mobile touch play and length adjustment",
+      "pass": true,
+      "detail": {
+        "before": 0.369,
+        "after": 0.23800000000000002
+      }
+    }
+  ],
+  "maxAngleErrorRadians": 1.4988010832439613e-15
+}

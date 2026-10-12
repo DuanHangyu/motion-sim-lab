@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-10-12T07:25:30.855Z",
+  "checks": [
+    {
+      "name": "pause freezes model time and state while rendering continues",
+      "status": "pass"
+    },
+    {
+      "name": "normal clock advances at 1x and 0.25x",
+      "status": "pass"
+    },
+    {
+      "name": "view switches preserve same physical state",
+      "status": "pass"
+    },
+    {
+      "name": "real raycast bob click records an impulse",
+      "status": "pass"
+    },
+    {
+      "name": "real raycast bob vertical drag changes length",
+      "status": "pass"
+    },
+    {
+      "name": "real raycast knob drag changes length",
+      "status": "pass"
+    },
+    {
+      "name": "real raycast glass timeline drag changes model time",
+      "status": "pass"
+    },
+    {
+      "name": "browser impulse replay and rewriting future",
+      "status": "pass"
+    },
+    {
+      "name": "fifteen-bob wave and return to pair hides inactive picks",
+      "status": "pass"
+    },
+    {
+      "name": "keyboard and semantic slider controls",
+      "status": "pass"
+    },
+    {
+      "name": "desktop fits bounds and no document overflow",
+      "status": "pass"
+    },
+    {
+      "name": "mobile 390x844 no overflow, visible bobs and both length controls",
+      "status": "pass"
+    },
+    {
+      "name": "resources and browser console contain no errors",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "browserVersion": "154.0.8037.98",
+  "gpuArguments": [
+    "--use-angle=metal",
+    "--enable-gpu"
+  ],
+  "selfRepairCount": 4
+}

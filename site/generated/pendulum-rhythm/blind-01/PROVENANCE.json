@@ -1,0 +1,31 @@
+{
+  "createdAt": "2026-10-12T07:29:37.350Z",
+  "designInput": "INPUT-PROMPT.md",
+  "inputSha256": "e035cc5f1e78eb398da50d0a0cccbedbf3084bba54a9d6c0bf6b60ab650271c4",
+  "blindGeneration": true,
+  "referenceConsulted": false,
+  "oldCandidateConsulted": false,
+  "otherAgentOutputsConsulted": false,
+  "sourceOrigin": "All application source, geometry, textures, light panels and tests written independently in this candidate.",
+  "dependency": {
+    "name": "three",
+    "version": "0.183.2",
+    "source": "Fresh npm registry install in the empty candidate directory; used build and addon modules vendored without edits.",
+    "license": "MIT",
+    "licenseFile": "vendor/three/LICENSE"
+  },
+  "testRuntime": "Generic installed Playwright with Chrome; runtime path supplied only through PLAYWRIGHT_MODULE.",
+  "selfRepairCount": 4,
+  "repairLog": "artifacts/self-repair-log.json",
+  "sourceHashes": {
+    "INPUT-PROMPT.md": "e035cc5f1e78eb398da50d0a0cccbedbf3084bba54a9d6c0bf6b60ab650271c4",
+    "index.html": "60eccc0cfe853e40dde1ff96adec2228ae655e73075cc8e507f4b14dce6a0cda",
+    "app.js": "51dde8a38607c0d69323df14fb8c04d3e6010b46676107ca98de6a134195af85",
+    "model.js": "2a1bffe51888ffea99ffe6c8a24ae8e5bbb570b122eaded5f8436d7bfcdc79cd",
+    "style.css": "d861260feeaa7e5e9e15c460c5469fb0e69921afea71811c7bd3438c4966d9e7",
+    "server.mjs": "69b39d13700ddb828a36113191bb369feb64caf714260bedc0694bf2d6fb0f0a",
+    "package.json": "28e9693fdc3dc4cb7c99df38af6129d464f6fd7d86299c61123a44c3e9d14b14",
+    "package-lock.json": "bfc798962ded6c5361fd4a6b1a23fb578313b12e1bd2a5978fcfe7292b373ec5",
+    "vendor/three/LICENSE": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+  }
+}

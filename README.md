@@ -27,6 +27,17 @@
 
 完整目录在运行后的首页。首页还保留两个外部作品入口，因此显示 58 张作品卡片。
 
+## 提示词与独立复现
+
+新增 **[摆的节律提示词实验室](http://127.0.0.1:4173/prompt-lab/)**：一键查看、复制或下载完整提示词，操作文字生成版，切换原版参考与左右对照，查看真实连续播放录像和评价。
+
+- [完整主提示词 v1](site/prompts/pendulum-rhythm/v1.md)
+- [对应独立生成源码 blind-01](site/generated/pendulum-rhythm/blind-01/)
+- [盲测方法与结果](docs/prompt-recovery/pendulum-rhythm/REPORT.md)
+- [完整作品清单与后续计划](docs/prompt-recovery/README.md)
+
+重建提示词不是历史原始提示词的确认恢复。每份输入与实际生成轮次对应；可运行、物理正确和视觉接近分别验证，公开保留差距和简化项。原版署名保留，独立生成结果另存。
+
 ## 本地运行
 
 需要 **Node.js 22 或以上**，以及支持 WebGL2 的现代浏览器。Gigacity 使用 WebGPU；浏览器和设备的图形能力会影响可用效果。

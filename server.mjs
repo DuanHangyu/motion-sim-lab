@@ -9,7 +9,7 @@ import { WebSocketServer, WebSocket } from 'ws';
 const base = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(process.env.SITE_ROOT || path.join(base, 'site'));
 const dataDirectory = path.resolve(process.env.DATA_DIR || path.join(base, 'data'));
-const types = { '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.webp':'image/webp', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.ttf':'font/ttf', '.mp4':'video/mp4', '.webm':'video/webm', '.csv':'text/csv', '.txt':'text/plain; charset=utf-8' };
+const types = { '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.mjs':'application/javascript; charset=utf-8', '.md':'text/plain; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.webp':'image/webp', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.ttf':'font/ttf', '.mp4':'video/mp4', '.webm':'video/webm', '.csv':'text/csv', '.txt':'text/plain; charset=utf-8' };
 const rooms = new Map();
 const limits = new Map();
 let fontMap = {};

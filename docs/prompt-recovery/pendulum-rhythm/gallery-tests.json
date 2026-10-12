@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-12T07:42:00.763Z",
+  "browser": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "Published generated module renders and shows six final ratings",
+      "pass": true
+    },
+    {
+      "name": "Prompt modal and clipboard contain the exact locked input",
+      "pass": true
+    },
+    {
+      "name": "Report modal identifies limitations and independent checks",
+      "pass": true
+    },
+    {
+      "name": "Side-by-side reset, scrubbing, play and pause reach both real APIs",
+      "pass": true,
+      "detail": {
+        "timeAfterPlay": [
+          5.21,
+          5.209999999999999
+        ]
+      }
+    },
+    {
+      "name": "Continuous clips load and paired playback/rate/pause work",
+      "pass": true,
+      "detail": [
+        {
+          "time": 0.551159,
+          "duration": 8,
+          "paused": false
+        },
+        {
+          "time": 0.565801,
+          "duration": 8,
+          "paused": false
+        }
+      ]
+    },
+    {
+      "name": "Phone gallery fits and text modal remains accessible",
+      "pass": true
+    },
+    {
+      "name": "Gallery has no uncaught errors or failing HTTP resources",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

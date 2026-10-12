@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>摆的节律 · 提示词实验室 | Motion Sim Lab</title>
+    <meta
+      name="description"
+      content="查看摆的节律重建提示词，操作独立生成的三维仿真，与原版做动态对照。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c1721'/%3E%3Cpath d='M7 7h18M10 7l-3 17M22 7l3 11' stroke='%237fe3ff' fill='none' stroke-width='2'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="../">MOTION SIM LAB <span>/ 提示词实验室</span></a
+      ><a
+        href="https://github.com/DuanHangyu/motion-sim-lab"
+        target="_blank"
+        rel="noopener"
+        >GitHub ↗</a
+      >
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <div class="eyebrow">01 / 原理仿真 · 独立生成实验</div>
+          <h1>摆的节律<span>Pendulum Rhythm</span></h1>
+          <p>
+            从同时释放到逐渐错相，再到重新相遇。操作三维实验，查看生成它的完整提示词。
+          </p>
+        </div>
+        <div class="actions">
+          <button id="show-prompt" class="primary">查看提示词</button
+          ><button id="copy-prompt">复制完整提示词</button
+          ><a
+            class="button"
+            href="../prompts/pendulum-rhythm/v1.md"
+            download="pendulum-rhythm-v1.md"
+            >下载提示词</a
+          >
+        </div>
+      </section>
+      <div class="status">
+        <span id="status-label">正在读取测试记录</span
+        ><span>v1 · 独立盲测 01</span
+        ><span>文字输入 → 空目录生成 → 封存 → 原版对照</span>
+      </div>
+      <section class="lab">
+        <div class="bar">
+          <div class="tabs" role="group" aria-label="演示选择">
+            <button data-mode="generated" aria-pressed="true">独立生成版</button
+            ><button data-mode="reference" aria-pressed="false">原版参考</button
+            ><button data-mode="compare" aria-pressed="false">
+              左右交互对照
+            </button>
+          </div>
+          <a
+            id="open-scene"
+            href="../generated/pendulum-rhythm/blind-01/"
+            target="_blank"
+            rel="noopener"
+            >全屏操作 ↗</a
+          >
+        </div>
+        <div id="frames" class="frames"></div>
+        <div id="sync-controls" hidden>
+          <label
+            >共同模型时间
+            <input
+              id="shared-time"
+              type="range"
+              min="0"
+              max="24"
+              step="0.01"
+              value="0"
+            /><output id="shared-time-value">0.00 s</output></label
+          ><button id="sync-reset">默认状态 · t=0</button
+          ><button id="sync-play">同时播放 1×</button
+          ><button id="sync-pause">同时暂停</button
+          ><span id="sync-message" role="status">等待两侧加载</span>
+        </div>
+        <p class="caption">
+          原版参考来自恢复的前端作品，保留 Ryan Sael
+          的署名。独立生成版只获得本文字提示词；视觉与交互差距见下方评价。
+        </p>
+      </section>
+      <section class="review">
+        <div class="review-intro">
+          <div class="eyebrow">真实播放 / 统一条件</div>
+          <h2>看运动，也看差距</h2>
+          <p id="verdict-text">测试结论将在独立生成结果封存后填写。</p>
+          <p>
+            两段录像均为实际 1×
+            连续播放，关闭电影镜头。播放器可共同暂停或慢放；不是截图合成动画。
+          </p>
+        </div>
+        <div class="videos">
+          <figure>
+            <figcaption>原版参考</figcaption>
+            <video
+              id="reference-video"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              src="./evidence/pendulum-rhythm/reference.mp4"
+              poster="./evidence/pendulum-rhythm/reference-drift.png"
+            ></video>
+          </figure>
+          <figure>
+            <figcaption>文字提示词独立生成</figcaption>
+            <video
+              id="candidate-video"
+              controls
+              muted
+              playsinline
+              preload="metadata"
+              src="./evidence/pendulum-rhythm/candidate.mp4"
+              poster="./evidence/pendulum-rhythm/candidate-drift.png"
+            ></video>
+          </figure>
+        </div>
+        <div class="video-actions">
+          <button id="video-play">同时播放录像</button
+          ><button id="video-pause">同时暂停录像</button
+          ><button data-rate="1">正常 1×</button
+          ><button data-rate="0.25">慢放 ¼×</button
+          ><span id="video-status" role="status"></span>
+        </div>
+        <div id="rating-grid" class="rating-grid"></div>
+        <div class="report-links">
+          <button id="show-report">查看完整评价</button
+          ><a href="./evidence/pendulum-rhythm/report.md">评价文件</a
+          ><a href="./evidence/pendulum-rhythm/freeze.json">生成结果封存记录</a>
+        </div>
+      </section>
+      <section class="reuse">
+        <h2>拿走提示词，再做一次</h2>
+        <p>
+          这份提示词描述模型比例、金属光照、非线性摆、施力回放、十五摆波和直接交互。它是根据现有演示反推的可复用描述，不能证明恢复了当年的原始措辞。单次独立实验也不能代表生成成功率。
+        </p>
+        <div class="steps">
+          <span><b>1</b>查看或复制完整提示词</span
+          ><span><b>2</b>交给新的 AI 编程会话</span
+          ><span><b>3</b>运行生成结果并按标准对照</span>
+        </div>
+        <p>
+          <a
+            href="https://github.com/DuanHangyu/motion-sim-lab/tree/main/site/generated/pendulum-rhythm/blind-01"
+            target="_blank"
+            rel="noopener"
+            >对应演示源码 ↗</a
+          >
+          ·
+          <a
+            href="https://github.com/DuanHangyu/motion-sim-lab/tree/main/docs/prompt-recovery"
+            target="_blank"
+            rel="noopener"
+            >方法与完整作品目录 ↗</a
+          >
+        </p>
+      </section>
+    </main>
+    <footer>
+      Motion Sim Lab · 提示词版本与演示轮次一一对应 · 本场景无需业务后端
+    </footer>
+    <dialog id="text-dialog">
+      <div class="dialog-head">
+        <div>
+          <div class="eyebrow" id="dialog-kind">可复制的完整输入</div>
+          <h2 id="dialog-title">摆的节律 · 主提示词 v1</h2>
+        </div>
+        <button id="close-dialog" aria-label="关闭">×</button>
+      </div>
+      <div class="dialog-tools">
+        <button id="dialog-copy">复制完整提示词</button
+        ><span id="copy-status" role="status"></span>
+      </div>
+      <pre id="dialog-text"></pre>
+    </dialog>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

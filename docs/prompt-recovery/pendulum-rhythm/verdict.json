@@ -1,0 +1,50 @@
+{
+  "scene": "pendulum-rhythm",
+  "trial": "blind-01",
+  "promptVersion": "v1",
+  "statusLabel": "结构与动效接近 · 质感仍有差距",
+  "conclusion": "只靠这份文字提示词，独立生成版已做出接近的仪器结构、双摆节律和十五摆重聚；17项独立物理与交互检查通过。金属高光、玻璃、地面反射及展厅构图仍有明显差距，不能视为高保真复刻。",
+  "overallClose": true,
+  "totalScore": 11,
+  "maximumScore": 18,
+  "dimensionsAtLeastTwo": 4,
+  "ratings": [
+    {
+      "name": "造型与构图",
+      "score": 2,
+      "reason": "门架、楔形控制台、双摆和旋钮整体结构接近；轮毂偏小、主体在画面中更小，构图仍有差异。"
+    },
+    {
+      "name": "金属与玻璃",
+      "score": 1,
+      "reason": "棱面黄铜与玻璃已实现；金属偏浅、反射较弱，玻璃有较重的面板感，缺少原版高光。"
+    },
+    {
+      "name": "展厅与界面",
+      "score": 1,
+      "reason": "有暮色背景、树、暖灯带和控制面板；地面偏灰且没有仪器倒影，标题和面板明显更大。"
+    },
+    {
+      "name": "双摆运动",
+      "score": 3,
+      "reason": "默认幅度、周期、固定枢轴、错相与重聚节律接近；模型角度采样几乎一致。"
+    },
+    {
+      "name": "相位与轨迹",
+      "score": 2,
+      "reason": "相位环、曲线、残影与时间带均随模型更新；标注、指针朝向与显示布局仍有差异。"
+    },
+    {
+      "name": "十五摆波",
+      "score": 2,
+      "reason": "十五摆与60秒重聚实现，四种队形指标可读；默认镜头和空间展示仍比原版简单。"
+    }
+  ],
+  "scoring": "人工0–3分；总分不是像素相似率。",
+  "independentChecks": {
+    "passed": 17,
+    "total": 17
+  },
+  "selfRepairCount": 4,
+  "inputSha256": "e035cc5f1e78eb398da50d0a0cccbedbf3084bba54a9d6c0bf6b60ab650271c4"
+}

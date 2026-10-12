@@ -1,0 +1,104 @@
+{
+  "status": "complete",
+  "readyForFreeze": true,
+  "entry": "index.html",
+  "intendedMount": "/generated/pendulum-rhythm/blind-01/",
+  "localURL": "http://127.0.0.1:4187",
+  "server": "node server.mjs",
+  "requiresRuntimeInstall": false,
+  "relativeModulePaths": true,
+  "promptSha256": "e035cc5f1e78eb398da50d0a0cccbedbf3084bba54a9d6c0bf6b60ab650271c4",
+  "selfRepairCount": 4,
+  "implementation": {
+    "renderer": "Three.js 0.183.2 / WebGL2, PBR procedural PMREM environment, standard bloom",
+    "geometry": "Beveled wedge console and metal portal frame, pivot bearings/washers/pins/hubs, 80-face brass bobs, 3D dials and glass timeline, procedural exhibition room",
+    "physics": "Nonlinear damped finite-bob RK4 at 480 Hz, 120 Hz cache, deterministic 180-second replay and branch rewriting",
+    "interaction": "Raycast bob click/drag, dial click/drag, timeline drag/marker jumps, semantic sliders, keyboard and touch camera controls",
+    "modes": [
+      "Drift",
+      "5:4",
+      "3:2",
+      "Twins",
+      "Wave"
+    ],
+    "views": [
+      "Lab",
+      "Exploded",
+      "Studio"
+    ],
+    "apiObject": "window.pendulumLab",
+    "apiMethods": [
+      "snapshot",
+      "setPreset",
+      "setTime",
+      "play",
+      "pause",
+      "setSpeed",
+      "setLength",
+      "push",
+      "release",
+      "setView",
+      "resetCamera",
+      "setCinematic"
+    ],
+    "pickingCoordinates": "snapshot().interactive array of {type,index,x,y} in viewport CSS pixels"
+  },
+  "verification": {
+    "modelChecks": 10,
+    "modelPassed": true,
+    "browserChecks": 13,
+    "browserPassed": true,
+    "browserErrors": [],
+    "desktop": [
+      1440,
+      1020
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "defaultPeriods": [
+      1.226636101386896,
+      0.9711523045403103
+    ],
+    "firstSyncSeconds": 4.662456300786366,
+    "waveCoherence60": [
+      0.999952706510745,
+      0.9998108340470483,
+      0.9995744066195109,
+      0.9992434642404588
+    ],
+    "measuredFramesPerSecond": 59.986524543960506,
+    "measuredModelSecondsPerWallSecond": 0.9997369825574799,
+    "performanceScope": "Only this local Chrome run using Metal GPU, desktop viewport 1440x1020; not a universal performance claim",
+    "browserVersion": "154.0.8037.98"
+  },
+  "artifacts": {
+    "readme": "README.md",
+    "provenance": "PROVENANCE.json",
+    "modelTests": "artifacts/model-test-results.json",
+    "browserTests": "artifacts/browser-test-results.json",
+    "recordingMetadata": "artifacts/video-validation.json",
+    "continuousVideo": "artifacts/normal-1x-continuous.mp4",
+    "continuousVideoWebM": "artifacts/normal-1x-continuous.webm",
+    "screenshots": [
+      "artifacts/default-desktop.png",
+      "artifacts/default-mobile.png",
+      "artifacts/wave-desktop.png",
+      "artifacts/exploded-desktop.png",
+      "artifacts/studio-desktop.png"
+    ],
+    "videoFrame": "artifacts/video-proof-frame.png"
+  },
+  "limitations": [
+    "PBR floor environment reflection, no planar instrument reflection",
+    "Soft PCF shadows approximate contact shading",
+    "Thin translucent glass without physical refraction",
+    "Exploded labels and separation are simplified; no reassembly animation",
+    "Click impulses; sideways drag sets release angle, no velocity-sensitive flick recognition",
+    "Wave timeline plots first two model channels; formation uses all fifteen",
+    "Camera distance adapts to viewport; small mobile hardware details are less readable",
+    "Impulses quantized to nearest 1/480 second; cache interpolation can smooth a discontinuity inside a sample interval"
+  ],
+  "frozenByGenerator": true
+}
