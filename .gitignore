@@ -1,0 +1,8 @@
+/node_modules/
+/data/
+.DS_Store
+.env
+.env.*
+*.log
+# Local recovery notes and account-search records stay private to this workspace.
+/docs/

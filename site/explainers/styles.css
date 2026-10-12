@@ -1,0 +1,1502 @@
+:root {
+  --bg: #fff;
+  --ink: #111113;
+  --mute: #8a8a90;
+  --soft: #6b6b72;
+  --chip: #f1f1f3;
+  --chip-h: #e8e8eb;
+  --line: rgba(0, 0, 0, 0.07);
+  --tile: #f3f3f5;
+  --live: #1fa35b;
+  --side: 236px;
+  --pad: clamp(14px, 1.6vw, 24px);
+  --ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0d0d0e;
+    --ink: #f1f1f2;
+    --mute: #77777d;
+    --soft: #9a9aa0;
+    --chip: #1b1b1d;
+    --chip-h: #252528;
+    --line: rgba(255, 255, 255, 0.07);
+    --tile: #18181a;
+    --live: #3fcf7f;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    400 13.5px/1.45 Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-feature-settings:
+    "cv11" 1,
+    "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+}
+svg {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lbl {
+  color: var(--mute);
+}
+.shell {
+  min-height: 100vh;
+}
+/* quiet sticky sidebar */
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--side);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 22px 20px 20px var(--pad);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+.brand svg {
+  width: 30px;
+  height: 30px;
+}
+.grp {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.grp a,
+.grp span {
+  width: max-content;
+}
+.grp a {
+  color: var(--soft);
+  transition: color 0.15s;
+}
+.grp a:hover {
+  color: var(--ink);
+}
+.browse a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  max-width: 180px;
+  padding: 1px 0;
+}
+.browse a b {
+  font-weight: 400;
+  color: var(--mute);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.browse a {
+  position: relative;
+  transition: color 0.15s;
+}
+.browse a.on {
+  color: var(--ink);
+  font-weight: 500;
+}
+.browse a.on b {
+  color: var(--ink);
+}
+.browse a.on:before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+}
+.grp.browse a.on:after {
+  content: none;
+} /* the count stays; the bar on the left marks the active one */
+.grp .on {
+  color: var(--ink);
+}
+.grp .on:after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-left: 8px;
+  vertical-align: 2px;
+}
+.live i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--live);
+  margin-right: 7px;
+  vertical-align: 1px;
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 50%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+.foot {
+  margin-top: auto;
+}
+/* main column */
+main {
+  margin-left: var(--side);
+  padding: 6px var(--pad) 40px 8px;
+  min-width: 0;
+}
+.top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0 14px;
+}
+.top h1 {
+  font-size: 15px;
+  font-weight: 500;
+}
+/* sticky toolbar: full-bleed background with room above, so cards never peek over it */
+.bar2 {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 calc(-1 * var(--pad)) 0 -8px;
+  padding: 16px var(--pad) 14px 8px;
+  background: var(--bg);
+}
+.bar2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+  background: linear-gradient(var(--bg), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  will-change: opacity;
+  transform: translateZ(0);
+}
+body.scrolled .bar2:after {
+  opacity: 1;
+}
+.now .live.waiting {
+  visibility: hidden;
+}
+.now .live {
+  transition: opacity 0.4s;
+}
+.now .live.waiting {
+  opacity: 0;
+}
+.now {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 8px;
+  color: var(--soft);
+  font-size: 12.5px;
+}
+.now > span,
+.now > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.now .live i {
+  margin-right: 2px;
+}
+.now a.live {
+  transition: color 0.15s;
+}
+.now a.live:hover {
+  color: var(--ink);
+}
+.now a.live:hover .wd {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.now b {
+  font-weight: 500;
+  color: var(--ink);
+}
+.now svg {
+  font-size: 13px;
+}
+.now span[title="views on X"] svg {
+  font-size: 11px;
+}
+.chip {
+  border: 0;
+  background: var(--chip);
+  color: var(--soft);
+  padding: 8px 14px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.25s var(--ease);
+}
+.chip:hover {
+  background: var(--chip-h);
+  color: var(--ink);
+}
+.chip:active {
+  transform: scale(0.94);
+}
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+.sep {
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+  margin: 0 4px;
+}
+@media (max-width: 860px) {
+  .sep {
+    display: none;
+  }
+}
+.snd {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 15px;
+}
+.snd .m {
+  display: none;
+}
+.snd[aria-pressed="false"] .w {
+  display: none;
+}
+.snd[aria-pressed="false"] .m {
+  display: inline;
+}
+.snd[aria-pressed] {
+  background: var(--chip);
+  color: var(--soft);
+}
+/* tags: a quiet line under the toolbar, only the ones present in what you are looking at */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+  margin: -2px 0 14px;
+  font-size: 12.5px;
+  color: var(--mute);
+}
+.tags:empty {
+  display: none;
+}
+.tags button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  padding: 2px 7px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+.tags button:hover {
+  color: var(--ink);
+}
+.tags button.on {
+  color: var(--ink);
+  background: var(--chip);
+}
+.tags span {
+  opacity: 0.4;
+  padding: 0 1px;
+}
+.banner[hidden] {
+  display: none;
+} /* a class beats [hidden] on specificity, so say it explicitly */
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 0 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--tile);
+}
+.banner .lbl {
+  display: block;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.banner p {
+  margin: 4px 0 0;
+  max-width: 62ch;
+  color: var(--soft);
+}
+.banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--bg);
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.banner a:hover {
+  opacity: 0.85;
+}
+.banner a svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  stroke: none;
+}
+/* make your own: a chat-style box; the button copies a ready prompt for a coding agent instead of sending */
+.banner .ask {
+  flex-basis: 100%;
+}
+.ask h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ask p {
+  margin: 3px 0 0;
+}
+.ask-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 9px;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.ask-box:focus-within {
+  border-color: color-mix(in srgb, var(--ink) 28%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ink) 6%, transparent);
+}
+.ask-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  padding: 9px 0;
+}
+.ask-box input::placeholder {
+  color: var(--mute);
+}
+.ask-go {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 11px;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: var(--bg);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    opacity 0.15s,
+    transform 0.1s;
+}
+.ask-go:hover {
+  opacity: 0.88;
+}
+.ask-go:active {
+  transform: scale(0.97);
+}
+.ask-go svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ask-go .ok {
+  display: none;
+}
+.ask-go.done .ok {
+  display: block;
+}
+.ask-go.done .cp {
+  display: none;
+}
+.ask-try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  font-size: 12.5px;
+  color: var(--mute);
+}
+.ask-try button {
+  border: 0;
+  border-radius: 99px;
+  padding: 4px 10px;
+  background: var(--chip);
+  color: var(--soft);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.ask-try button:hover {
+  background: var(--chip-h);
+  color: var(--ink);
+}
+.ask-msg {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--live) 10%, transparent);
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.ask-msg[hidden] {
+  display: none;
+}
+.ask-msg svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--live);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ask-msg b {
+  font-weight: 600;
+}
+.ask-msg span {
+  color: var(--soft);
+}
+.ask-shake {
+  animation: askShake 0.32s;
+}
+@keyframes askShake {
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
+@media (max-width: 560px) {
+  .ask-go .t {
+    display: none;
+  }
+  .ask-go {
+    padding: 10px 12px;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--bg);
+  font:
+    500 13.5px/1 Inter,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.3s,
+    opacity 0.15s;
+}
+.cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.cta:active {
+  transform: scale(0.96);
+}
+.cta svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+/* The one button worth pressing. In daylight a soft highlight crosses the dark pill and parks out of
+   sight; at night the pill is already near-white, so the sheen is dropped and a white halo breathes
+   instead. Both stop on hover, and under reduced motion nothing moves. */
+.cta.ask {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  animation: halo 7s ease-out 2s infinite;
+}
+.cta.ask:after {
+  content: "";
+  position: absolute;
+  top: -70%;
+  bottom: -70%;
+  left: 0;
+  width: 45%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55) 42%,
+    rgba(255, 255, 255, 0.55) 58%,
+    transparent
+  );
+  filter: blur(4px);
+  animation: sheen 7s cubic-bezier(0.4, 0, 0.3, 1) 2s infinite;
+}
+.cta.ask:hover,
+.cta.ask:hover:after {
+  animation-play-state: paused;
+}
+@keyframes sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) rotate(14deg);
+  }
+  7% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  29%,
+  100% {
+    opacity: 0;
+    transform: translateX(340%) rotate(14deg);
+  }
+}
+@keyframes halo {
+  0%,
+  72%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ink) 22%, transparent);
+  }
+  14% {
+    box-shadow: 0 0 0 9px color-mix(in srgb, var(--ink) 0%, transparent);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .cta.ask:after {
+    display: none;
+  }
+  @keyframes halo {
+    0%,
+    72%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+    }
+    14% {
+      box-shadow: 0 0 0 11px rgba(255, 255, 255, 0);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta.ask,
+  .cta.ask:after {
+    animation: none;
+  }
+}
+.banner .second {
+  background: none;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line);
+  padding: 11px 16px;
+}
+.banner .second:hover {
+  background: var(--chip);
+  opacity: 1;
+  transform: none;
+}
+.banner .acts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+/* wide enough for one line: the copy keeps the left, the buttons take the right, and the banner
+   loses a row of height */
+@media (min-width: 860px) {
+  .banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px 28px;
+    flex-wrap: wrap;
+  }
+  .banner > div {
+    flex: 1;
+    min-width: 0;
+  }
+  .banner .acts {
+    width: auto;
+    flex: none;
+    justify-content: flex-end;
+  }
+}
+.banner .cta {
+  flex: 0 0 auto;
+} /* keep each button at its own width instead of filling the row */
+
+/* dialog */
+.say {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(10, 10, 12, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.say.on {
+  display: flex;
+}
+.say {
+  --field: rgba(0, 0, 0, 0.14);
+  --fieldbg: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  .say {
+    --field: rgba(255, 255, 255, 0.18);
+    --fieldbg: #121214;
+  }
+}
+.say .sheet {
+  width: min(500px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 40px 90px -28px rgba(0, 0, 0, 0.6);
+  animation: rise 0.32s var(--ease) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.say h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.say .lede {
+  margin: 8px 0 0;
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.say .head {
+  position: relative;
+  padding-right: 40px;
+}
+.say .x {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--mute);
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.say .x:hover {
+  background: var(--chip);
+  color: var(--ink);
+}
+.say fieldset {
+  border: 0;
+  margin: 22px 0 0;
+  padding: 0;
+}
+.say legend {
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.say legend em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--mute);
+}
+.who {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 11px;
+}
+.who label {
+  cursor: pointer;
+}
+.who input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.who span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 99px;
+  background: var(--chip);
+  color: var(--ink);
+  font-size: 13.5px;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.18s var(--ease);
+}
+.who label:hover span {
+  background: var(--chip-h);
+}
+.who label:active span {
+  transform: scale(0.95);
+}
+.who svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+.who input:checked + span svg {
+  opacity: 1;
+}
+.who input:checked + span {
+  background: var(--ink);
+  color: var(--bg);
+}
+.who input:focus-visible + span {
+  outline: 2px solid #2f6bff;
+  outline-offset: 2px;
+}
+.say textarea,
+.say input[type="email"],
+.say input[type="text"] {
+  width: 100%;
+  margin-top: 11px;
+  padding: 13px 15px;
+  border: 1px solid var(--field);
+  border-radius: 13px;
+  background: var(--fieldbg);
+  color: var(--ink);
+  font:
+    400 14.5px/1.55 Inter,
+    sans-serif;
+  resize: vertical;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.say textarea {
+  min-height: 104px;
+}
+.say textarea:focus,
+.say input:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.say textarea::placeholder,
+.say input::placeholder {
+  color: var(--soft);
+  opacity: 1;
+}
+.say textarea {
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s,
+    opacity 0.3s;
+}
+.say .hint {
+  margin: 9px 2px 0;
+  font-size: 12.5px;
+  color: var(--mute);
+}
+/* the opt-ins: one card under the address they depend on, a row each, the box level with the first line of
+   its text and the text balanced, so no word is left hanging on a line of its own */
+.opts {
+  margin-top: 14px;
+  border-radius: 13px;
+  background: var(--chip);
+  overflow: hidden;
+}
+.opt[hidden] {
+  display: none;
+}
+.opt:not([hidden]) ~ .opt:not([hidden]) {
+  border-top: 1px solid var(--line);
+}
+.okbox {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 11px 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.okbox:hover {
+  background: var(--chip-h);
+}
+.opt .more {
+  padding: 0 13px 12px 42px;
+}
+.opt .more[hidden] {
+  display: none;
+}
+.opt .cap {
+  display: block;
+  margin-top: 6px;
+  color: var(--soft);
+  font-size: 11.5px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.opt .cap.need {
+  margin-top: 0;
+  color: #c2410c;
+}
+@media (prefers-color-scheme: dark) {
+  .opt .cap.need {
+    color: #ffb36b;
+  }
+}
+.at {
+  position: relative;
+  display: block;
+}
+.at:before {
+  content: "@";
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1;
+  pointer-events: none;
+}
+.say .at input[type="text"] {
+  margin-top: 0;
+  padding: 10px 13px 10px 30px;
+  font-size: 14px;
+}
+.okbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.okbox .box {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: var(--bg);
+  box-shadow: inset 0 0 0 1.5px var(--mute);
+  position: relative;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s;
+}
+.okbox .box:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0.4);
+  opacity: 0;
+  transition:
+    opacity 0.15s,
+    transform 0.2s var(--ease);
+}
+.okbox input:checked + .box {
+  background: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.okbox input:checked + .box:after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+.okbox input:focus-visible + .box {
+  box-shadow:
+    inset 0 0 0 1.5px var(--ink),
+    0 0 0 3px color-mix(in srgb, var(--ink) 18%, transparent);
+}
+.pair {
+  display: flex;
+  gap: 10px;
+}
+.pair input {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 520px) {
+  .pair {
+    display: block;
+  }
+}
+.who2 {
+  margin-top: 11px;
+}
+.who2 .cap {
+  display: block;
+  margin-top: 6px;
+  color: var(--soft);
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.who2 input {
+  margin-top: 0;
+}
+.okbox .t {
+  color: var(--soft);
+  font-size: 12px;
+  line-height: 18px;
+  text-wrap: pretty;
+}
+.okbox .t b {
+  color: var(--ink);
+  font-weight: 500;
+}
+.say .foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+.say .send {
+  margin-left: auto;
+  padding: 12px 24px;
+}
+.say .send:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+}
+.say .note {
+  margin: 16px 0 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.say .note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.say .err {
+  color: #e5484d;
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+/* the honeypot: off-screen for eyes, untabbable, but a form filler will happily complete it */
+.pot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.say .done {
+  text-align: center;
+  padding: 30px 8px 16px;
+}
+.say .done .tick {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  animation: pop 0.4s var(--ease) both;
+}
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.say .done h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.say .done p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.say .done .row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+@media (max-width: 560px) {
+  .say {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .say .sheet {
+    width: 100%;
+    max-height: 92dvh;
+    border-radius: 22px 22px 0 0;
+    padding: 22px 18px 26px;
+    animation: up 0.34s var(--ease) both;
+  }
+  @keyframes up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: none;
+    }
+  }
+  .say .send {
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+  }
+  .say .foot {
+    margin-top: 20px;
+  }
+}
+
+/* the disclaimer, floating at the bottom of its category */
+.dis {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(560px, calc(100vw - 36px));
+  padding: 12px 12px 12px 18px;
+  border-radius: 99px;
+  background: rgba(16, 16, 18, 0.86);
+  color: #ececf2;
+  backdrop-filter: blur(14px) saturate(1.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  box-shadow: 0 18px 50px -18px rgba(0, 0, 0, 0.6);
+  font-size: 12.5px;
+  line-height: 1.5;
+  animation: dis-in 0.5s var(--ease) both;
+  animation-delay: 0.6s;
+}
+@keyframes dis-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.dis[hidden] {
+  display: none;
+}
+.dis b {
+  font-weight: 600;
+  color: #fff;
+}
+/* text-wrap:pretty keeps the last line from being one word on its own, which "on." was */
+.dis p {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  text-wrap: pretty;
+}
+.dis button {
+  flex: none;
+  border: 0;
+  border-radius: 99px;
+  padding: 8px 15px;
+  background: #ffffff24;
+  color: #fff;
+  font:
+    500 12.5px/1 Inter,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.2s var(--ease);
+}
+.dis button:hover {
+  background: #ffffff3d;
+}
+.dis button:active {
+  transform: scale(0.95);
+}
+@media (max-width: 620px) {
+  .dis {
+    border-radius: 16px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    bottom: 12px;
+  }
+  .dis button {
+    align-self: flex-end;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  grid-auto-flow: dense;
+  gap: 12px;
+  grid-auto-rows: var(--row, auto);
+}
+.card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 16/10;
+}
+.card.big {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.card.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+.card.hero {
+  grid-column: 1/-1;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.card.tall {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.hit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--tile);
+  isolation: isolate;
+  box-shadow: 0 0 0 1px var(--line);
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.3s;
+  outline-offset: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.hit:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 14px 30px -18px rgba(0, 0, 0, 0.45);
+}
+.hit:active {
+  transform: scale(0.975);
+  transition-duration: 0.12s;
+}
+.media,
+.media img,
+.media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.media img,
+.media video {
+  object-fit: cover;
+  transition:
+    transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.6s;
+}
+.media video {
+  opacity: 0;
+}
+.media video.on {
+  opacity: 1;
+}
+.hit:hover .media img,
+.hit:hover .media video {
+  transform: scale(1.03);
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.12) 34%,
+      transparent 55%
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.22), transparent 26%);
+}
+.views {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 99px;
+  background: rgba(20, 20, 22, 0.34);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+.views:empty {
+  display: none;
+}
+.views svg {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.title {
+  position: absolute;
+  left: 14px;
+  bottom: 13px;
+  right: 60px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+.big .title,
+.hero .title {
+  font-size: 17px;
+}
+.go {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(20, 20, 22, 0.34);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 14px;
+  transition:
+    transform 0.4s var(--ease),
+    background 0.2s;
+}
+.hit:hover .go {
+  transform: rotate(45deg) scale(1.08);
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+}
+@media (max-width: 860px) {
+  aside {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 18px;
+    padding: 16px var(--pad) 8px;
+  }
+  .foot {
+    margin-top: 0;
+  }
+  .grp {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .grp .lbl {
+    display: none;
+  }
+  .bar2 {
+    margin: 0 calc(-1 * var(--pad));
+    padding: 10px var(--pad) 12px;
+  }
+  .now {
+    gap: 12px;
+  }
+  main {
+    margin-left: 0;
+    padding: 0 var(--pad) 32px;
+  }
+  .top {
+    display: none;
+  }
+}
+@media (max-width: 560px) {
+  .card.hero {
+    aspect-ratio: 16/10;
+  }
+  .bar2 {
+    flex-wrap: nowrap;
+  }
+  .now {
+    gap: 10px;
+    padding-right: 2px;
+  }
+  .now .wd {
+    display: none;
+  }
+  .chip {
+    padding: 8px 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Geom';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/vendor/fonts/c2ab91203e5464d475.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Geom';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/vendor/fonts/ecd6ef7476298480f9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Geom';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/vendor/fonts/db0ca16569e33c146a.ttf) format('truetype');
+}

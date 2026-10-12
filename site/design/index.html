@@ -1,0 +1,3001 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Design — Ryan Sael</title>
+    <meta
+      name="description"
+      content="Ryan Sael's stuff — things to poke at, in a browser."
+    />
+    <meta name="sael-build" content="2026-10-11T15:36:46.982Z" />
+    <meta property="og:title" content="Ryan Sael" /><meta
+      property="og:description"
+      content="Ryan Sael's stuff"
+    />
+    <meta property="og:image" content="https://sael.net/og.jpg" /><meta
+      property="og:url"
+      content="https://sael.net/"
+    /><meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    /><meta
+      name="theme-color"
+      content="#0d0d0e"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23111'/%3E%3Cpath d='M10 22V10h6.2a3.6 3.6 0 0 1 0 7.2H10m6 0 6 4.8' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/design/bootstrap-1.js"></script>
+    <link rel="stylesheet" href="/design/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside>
+        <a class="brand" href="/"
+          ><svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect
+              width="32"
+              height="32"
+              rx="9"
+              fill="currentColor"
+              stroke="none"
+            />
+            <path
+              d="M10 22V10h6.2a3.6 3.6 0 0 1 0 7.2H10m6 0 6 4.8"
+              stroke="var(--bg)"
+              stroke-width="2.4"
+              fill="none"
+            /></svg
+          >Ryan Sael</a
+        >
+        <nav class="grp browse"
+          ><span class="lbl">Browse</span
+          ><a href="/" class="cat-link" data-filter="">All<b>58</b></a
+          ><a href="/explainers" class="cat-link" data-filter="Explainers"
+            >Explainers<b>30</b></a
+          ><a href="/worlds" class="cat-link" data-filter="Worlds"
+            >Worlds<b>11</b></a
+          ><a href="/data" class="cat-link" data-filter="Data">Data<b>8</b></a
+          ><a href="/design" class="cat-link on" data-filter="Design"
+            >Design<b>2</b></a
+          ><a href="/play" class="cat-link" data-filter="Play">Play<b>2</b></a
+          ><a href="/virtual-tour" class="cat-link" data-filter="Virtual Tour"
+            >Virtual Tour<b>1</b></a
+          ></nav
+        >
+        <div class="grp foot"
+          ><span class="lbl">Elsewhere</span
+          ><a href="https://x.com/ryansael" rel="me">X ↗</a></div
+        >
+      </aside>
+      <main>
+        <div class="bar2" role="toolbar" aria-label="sort">
+          <button class="chip" aria-pressed="true" data-sort="date"
+            >Newest</button
+          ><button class="chip" aria-pressed="false" data-sort="views"
+            >Most viewed</button
+          >
+          <span class="now" aria-label="statistics"
+            ><a
+              class="live waiting"
+              href="/here"
+              data-umami-event="here-now"
+              title="people on sael.net right now, counted live. Open the map of where they are"
+              ><i></i><b data-stat="active">44</b
+              ><span class="wd">here now</span></a
+            ><span title="views across the works and their X posts"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" /></svg
+              ><b data-stat="views">6.4M</b> views</span
+            ></span
+          >
+          <button
+            class="chip snd"
+            aria-pressed="true"
+            aria-label="sound"
+            title="Sound"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+              <path
+                class="w"
+                d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"
+              />
+              <path class="m" d="m17 9 5 6m0-6-5 6" /></svg
+          ></button>
+        </div>
+        <div class="tags" aria-label="tags"></div>
+        <section class="banner" data-for="Explainers" hidden>
+          <div
+            ><span class="lbl">Open source, soon</span>
+            <p
+              >These explainers are becoming an open project: free to use, open
+              to contributions, and moving to a home of its own.</p
+            ></div
+          >
+          <div class="acts">
+            <button
+              class="cta ask"
+              type="button"
+              data-say
+              data-umami-event="banner-say"
+              >Got an idea?</button
+            >
+            <a
+              class="cta second"
+              href="https://x.com/ryansael"
+              target="_blank"
+              rel="noopener"
+              data-umami-event="banner-follow"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  stroke="none"
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                /></svg
+              >Follow for the launch</a
+            >
+          </div>
+        </section>
+        <div
+          class="dis"
+          data-for="Explainers Simulator"
+          data-note="explainers"
+          hidden
+        >
+          <p
+            ><b>Heads up:</b> these are simplified models. Plenty is left out on
+            purpose and some of it may be wrong, so check anything you teach or
+            build on.</p
+          >
+          <button type="button" data-umami-event="note-dismiss"
+            >Got it</button
+          ></div
+        >
+        <div class="grid">
+          <article
+            class="card"
+            data-slug="live-dashboard"
+            data-date="2026-10-10"
+            data-cat="Data"
+            data-tags="live|maps|openstreetmap"
+            data-size=""
+            data-views="2825"
+            data-x="2495"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/live-dashboard"
+              data-umami-event="open-project"
+              data-umami-event-project="live-dashboard"
+            >
+              <span class="media"
+                ><img
+                  src="/p/live-dashboard/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/live-dashboard/loop.mp4 /p/live-dashboard/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="330 on the site + 2,495 on X
+published 11 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>2.8k</b></span
+              >
+              <span class="title">The World Map, Live</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="gigacity"
+            data-date="2026-10-08"
+            data-cat="Worlds"
+            data-tags="city|procedural|webgpu"
+            data-size=""
+            data-views="734031"
+            data-x="691820"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/gigacity"
+              data-umami-event="open-project"
+              data-umami-event-project="gigacity"
+            >
+              <span class="media"
+                ><img
+                  src="/p/gigacity/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/gigacity/loop.webm /p/gigacity/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="42,211 on the site + 691,820 on X
+published 8 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>734k</b></span
+              >
+              <span class="title">Gigacity</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="fusion-pulse"
+            data-date="2026-10-06"
+            data-cat="Explainers"
+            data-tags="fusion|energy"
+            data-size=""
+            data-views="6027"
+            data-x="4853"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/fusion-pulse"
+              data-umami-event="open-project"
+              data-umami-event-project="fusion-pulse"
+            >
+              <span class="media"
+                ><img
+                  src="/p/fusion-pulse/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/fusion-pulse/loop.mp4 /p/fusion-pulse/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,174 on the site + 4,853 on X
+published 7 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>6k</b></span
+              >
+              <span class="title">Fusion That Pushes Back</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="apple-park"
+            data-date="2026-10-06"
+            data-cat="Virtual Tour"
+            data-tags="architecture|solar|tour"
+            data-size=""
+            data-views="67355"
+            data-x="65627"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/apple-park"
+              data-umami-event="open-project"
+              data-umami-event-project="apple-park"
+            >
+              <span class="media"
+                ><img
+                  src="/p/apple-park/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/apple-park/loop.mp4 /p/apple-park/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,728 on the site + 65,627 on X
+published 6 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>67k</b></span
+              >
+              <span class="title">Apple Park</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="here"
+            data-date="2026-10-05"
+            data-cat="Data"
+            data-tags="live|maps"
+            data-size=""
+            data-views="3620"
+            data-x="3009"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/here"
+              data-umami-event="open-project"
+              data-umami-event-project="here"
+            >
+              <span class="media"
+                ><img
+                  src="/p/here/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/here/loop.webm /p/here/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="611 on the site + 3,009 on X
+published 7 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>3.6k</b></span
+              >
+              <span class="title">Here now: the world on sael.net</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="moods"
+            data-date="2026-10-05"
+            data-cat="Design"
+            data-tags="ai|companions"
+            data-size=""
+            data-views="3365"
+            data-x="2917"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/moods"
+              data-umami-event="open-project"
+              data-umami-event-project="moods"
+            >
+              <span class="media"
+                ><img
+                  src="/p/moods/poster.webp"
+                  alt=""
+                  fetchpriority="high"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/moods/loop.mp4 /p/moods/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="448 on the site + 2,917 on X
+published 5 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>3.4k</b></span
+              >
+              <span class="title">Moods</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="robots"
+            data-date="2026-10-04"
+            data-cat="Play"
+            data-tags="game|robots|tycoon"
+            data-size=""
+            data-views="2020"
+            data-x="1764"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/robots"
+              data-umami-event="open-project"
+              data-umami-event-project="robots"
+            >
+              <span class="media"
+                ><img
+                  src="/p/robots/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/robots/loop.mp4 /p/robots/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="256 on the site + 1,764 on X
+published 11 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>2k</b></span
+              >
+              <span class="title">A Nation of Robots</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="gigawatt"
+            data-date="2026-10-02"
+            data-cat="Play"
+            data-tags="game|datacenter|tycoon"
+            data-size=""
+            data-views="33247"
+            data-x="32312"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/gigawatt"
+              data-umami-event="open-project"
+              data-umami-event-project="gigawatt"
+            >
+              <span class="media"
+                ><img
+                  src="/p/gigawatt/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/gigawatt/loop.mp4 /p/gigawatt/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="935 on the site + 32,312 on X
+published 4 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>33k</b></span
+              >
+              <span class="title">Garage to Gigawatt</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="starlink"
+            data-date="2026-10-01"
+            data-cat="Explainers"
+            data-tags="space|networks"
+            data-size=""
+            data-views="12264"
+            data-x="11213"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/starlink"
+              data-umami-event="open-project"
+              data-umami-event-project="starlink"
+            >
+              <span class="media"
+                ><img
+                  src="/p/starlink/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/starlink/loop.mp4 /p/starlink/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,051 on the site + 11,213 on X
+published 2 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>12k</b></span
+              >
+              <span class="title">Starlink: home internet from space</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="prompt"
+            data-date="2026-10-01"
+            data-cat="Explainers"
+            data-tags="ai|llm"
+            data-size=""
+            data-views="23112"
+            data-x="21836"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/prompt"
+              data-umami-event="open-project"
+              data-umami-event-project="prompt"
+            >
+              <span class="media"
+                ><img
+                  src="/p/prompt/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/prompt/loop.mp4 /p/prompt/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,276 on the site + 21,836 on X
+published 1 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>23k</b></span
+              >
+              <span class="title">What Happens When You Send a Prompt</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="benchmark-mountain"
+            data-date="2026-09-29"
+            data-cat="Worlds"
+            data-tags="benchmarks|timeline"
+            data-size=""
+            data-views="8966"
+            data-x="7532"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/benchmark-mountain"
+              data-umami-event="open-project"
+              data-umami-event-project="benchmark-mountain"
+            >
+              <span class="media"
+                ><img
+                  src="/p/benchmark-mountain/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/benchmark-mountain/loop.mp4 /p/benchmark-mountain/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,434 on the site + 7,532 on X
+published 29 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>9k</b></span
+              >
+              <span class="title">Benchmark Mountain</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="prism-room"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="optics|light"
+            data-size=""
+            data-views="169609"
+            data-x="168688"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/prism-room"
+              data-umami-event="open-project"
+              data-umami-event-project="prism-room"
+            >
+              <span class="media"
+                ><img
+                  src="/p/prism-room/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/prism-room/loop.webm /p/prism-room/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="921 on the site + 168,688 on X
+published 25 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>170k</b></span
+              >
+              <span class="title">Prism Room</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="earthquake-tower"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="structures|physics"
+            data-size=""
+            data-views="20307"
+            data-x="19238"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/earthquake-tower"
+              data-umami-event="open-project"
+              data-umami-event-project="earthquake-tower"
+            >
+              <span class="media"
+                ><img
+                  src="/p/earthquake-tower/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/earthquake-tower/loop.mp4 /p/earthquake-tower/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,069 on the site + 19,238 on X
+published 3 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>20k</b></span
+              >
+              <span class="title">Earthquake Tower</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="root-finder"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="maths"
+            data-size=""
+            data-views="14766"
+            data-x="14029"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/root-finder"
+              data-umami-event="open-project"
+              data-umami-event-project="root-finder"
+            >
+              <span class="media"
+                ><img
+                  src="/p/root-finder/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/root-finder/loop.mp4 /p/root-finder/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="737 on the site + 14,029 on X
+published 4 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>15k</b></span
+              >
+              <span class="title">Root Finder</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="rocket-nozzle"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="engineering|flight"
+            data-size=""
+            data-views="10689"
+            data-x="9314"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/rocket-nozzle"
+              data-umami-event="open-project"
+              data-umami-event-project="rocket-nozzle"
+            >
+              <span class="media"
+                ><img
+                  src="/p/rocket-nozzle/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/rocket-nozzle/loop.mp4 /p/rocket-nozzle/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,375 on the site + 9,314 on X
+published 30 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>11k</b></span
+              >
+              <span class="title">Rocket Nozzle</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="soap-bubble"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="surfaces|physics"
+            data-size=""
+            data-views="46186"
+            data-x="45036"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/soap-bubble"
+              data-umami-event="open-project"
+              data-umami-event-project="soap-bubble"
+            >
+              <span class="media"
+                ><img
+                  src="/p/soap-bubble/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/soap-bubble/loop.mp4 /p/soap-bubble/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,150 on the site + 45,036 on X
+published 1 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>46k</b></span
+              >
+              <span class="title">Soap Bubble</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="river-bend"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="geology|water"
+            data-size=""
+            data-views="483031"
+            data-x="471660"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/river-bend"
+              data-umami-event="open-project"
+              data-umami-event-project="river-bend"
+            >
+              <span class="media"
+                ><img
+                  src="/p/river-bend/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/river-bend/loop.mp4 /p/river-bend/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="11,371 on the site + 471,660 on X
+published 29 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>483k</b></span
+              >
+              <span class="title">River Bend</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="heart-pump"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="biology|anatomy"
+            data-size=""
+            data-views="45016"
+            data-x="42678"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/heart-pump"
+              data-umami-event="open-project"
+              data-umami-event-project="heart-pump"
+            >
+              <span class="media"
+                ><img
+                  src="/p/heart-pump/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/heart-pump/loop.mp4 /p/heart-pump/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="2,338 on the site + 42,678 on X
+published 29 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>45k</b></span
+              >
+              <span class="title">Heart Pump</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="bike-brake"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="mechanics|bikes"
+            data-size=""
+            data-views="20061"
+            data-x="19079"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/bike-brake"
+              data-umami-event="open-project"
+              data-umami-event-project="bike-brake"
+            >
+              <span class="media"
+                ><img
+                  src="/p/bike-brake/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/bike-brake/loop.mp4 /p/bike-brake/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="982 on the site + 19,079 on X
+published 5 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>20k</b></span
+              >
+              <span class="title">Bike Brake</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="interior"
+            data-date="2026-09-27"
+            data-cat="Design"
+            data-tags="interiors|light"
+            data-size=""
+            data-views="292046"
+            data-x="273879"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/interior"
+              data-umami-event="open-project"
+              data-umami-event-project="interior"
+            >
+              <span class="media"
+                ><img
+                  src="/p/interior/poster.webp"
+                  alt=""
+                  fetchpriority="high"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/interior/loop.webm /p/interior/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="18,167 on the site + 273,879 on X
+published 27 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>292k</b></span
+              >
+              <span class="title">Set the Mood</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="internet"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="networks"
+            data-size=""
+            data-views="27422"
+            data-x="24000"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/internet"
+              data-umami-event="open-project"
+              data-umami-event-project="internet"
+            >
+              <span class="media"
+                ><img
+                  src="/p/internet/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/internet/loop.webm /p/internet/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="3,422 on the site + 24,000 on X
+published 30 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>27k</b></span
+              >
+              <span class="title">How the Internet Works</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="a-muse-ment"
+            data-date="2026-09-25"
+            data-cat="Worlds"
+            data-tags="crowd|social"
+            data-size="1x2"
+            data-views="12480"
+            data-x="10235"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/a-muse-ment"
+              data-umami-event="open-project"
+              data-umami-event-project="a-muse-ment"
+            >
+              <span class="media"
+                ><img
+                  src="/p/a-muse-ment/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/a-muse-ment/loop.mp4 /p/a-muse-ment/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="2,245 on the site + 10,235 on X
+published 25 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>12k</b></span
+              >
+              <span class="title">X Muse</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="traffic"
+            data-date="2026-09-24"
+            data-cat="Explainers"
+            data-tags="systems|cars"
+            data-size=""
+            data-views="17705"
+            data-x="16060"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/traffic"
+              data-umami-event="open-project"
+              data-umami-event-project="traffic"
+            >
+              <span class="media"
+                ><img
+                  src="/p/traffic/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/traffic/loop.mp4 /p/traffic/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,645 on the site + 16,060 on X
+published 1 Oct 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>18k</b></span
+              >
+              <span class="title">Who Gets the Green?</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="ai-museum"
+            data-date="2026-09-24"
+            data-cat="Worlds"
+            data-tags="museum|timeline"
+            data-size=""
+            data-views="38892"
+            data-x="33925"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/ai-museum"
+              data-umami-event="open-project"
+              data-umami-event-project="ai-museum"
+            >
+              <span class="media"
+                ><img
+                  src="/p/ai-museum/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/ai-museum/loop.mp4 /p/ai-museum/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="4,967 on the site + 33,925 on X
+published 24 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>39k</b></span
+              >
+              <span class="title">Model Museum</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="data-center"
+            data-date="2026-09-23"
+            data-cat="Explainers"
+            data-tags="diorama|infrastructure"
+            data-size=""
+            data-views="84248"
+            data-x="79536"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/data-center"
+              data-umami-event="open-project"
+              data-umami-event-project="data-center"
+            >
+              <span class="media"
+                ><img
+                  src="/p/data-center/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/data-center/loop.mp4 /p/data-center/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="4,712 on the site + 79,536 on X
+published 23 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>84k</b></span
+              >
+              <span class="title">Inside an AI Data Center</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="plane-of-focus"
+            data-date="2026-09-23"
+            data-cat="Explainers"
+            data-tags="optics|camera"
+            data-size="2x2"
+            data-views="3595179"
+            data-x="3523853"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/plane-of-focus"
+              data-umami-event="open-project"
+              data-umami-event-project="plane-of-focus"
+            >
+              <span class="media"
+                ><img
+                  src="/p/plane-of-focus/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/plane-of-focus/loop.mp4 /p/plane-of-focus/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="71,326 on the site + 3,523,853 on X
+published 23 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>3.6M</b></span
+              >
+              <span class="title">The Plane of Focus</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="model-monsters"
+            data-date="2026-09-22"
+            data-cat="Worlds"
+            data-tags="leaderboard|creatures"
+            data-size=""
+            data-views="27249"
+            data-x="18821"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/model-monsters"
+              data-umami-event="open-project"
+              data-umami-event-project="model-monsters"
+            >
+              <span class="media"
+                ><img
+                  src="/p/model-monsters/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/model-monsters/loop.mp4 /p/model-monsters/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="8,428 on the site + 18,821 on X
+published 22 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>27k</b></span
+              >
+              <span class="title">Model Monsters</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="final-boss"
+            data-date="2026-09-21"
+            data-cat="Worlds"
+            data-tags="diorama|meme"
+            data-size=""
+            data-views="34790"
+            data-x="29461"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/final-boss"
+              data-umami-event="open-project"
+              data-umami-event-project="final-boss"
+            >
+              <span class="media"
+                ><img
+                  src="/p/final-boss/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/final-boss/loop.mp4 /p/final-boss/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="5,329 on the site + 29,461 on X
+published 22 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>35k</b></span
+              >
+              <span class="title">The Final Boss</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="ai-office"
+            data-date="2026-09-21"
+            data-cat="Worlds"
+            data-tags="diorama|benchmarks"
+            data-size="2x1"
+            data-views="18062"
+            data-x="14195"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/ai-office"
+              data-umami-event="open-project"
+              data-umami-event-project="ai-office"
+            >
+              <span class="media"
+                ><img
+                  src="/p/ai-office/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/ai-office/loop.mp4 /p/ai-office/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="3,867 on the site + 14,195 on X
+published 21 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>18k</b></span
+              >
+              <span class="title">The AI Office</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="cube-graph"
+            data-date="2026-09-20"
+            data-cat=""
+            data-tags="maths|puzzle"
+            data-size=""
+            data-views="48857"
+            data-x="44485"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/cube-graph"
+              data-umami-event="open-project"
+              data-umami-event-project="cube-graph"
+            >
+              <span class="media"
+                ><img
+                  src="/p/cube-graph/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/cube-graph/loop.mp4 /p/cube-graph/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="4,372 on the site + 44,485 on X
+published 20 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>49k</b></span
+              >
+              <span class="title">Cube Graph</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="token-town"
+            data-date="2026-09-16"
+            data-cat="Worlds"
+            data-tags="diorama|live data"
+            data-size="2x1"
+            data-views="239496"
+            data-x="225046"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/token-town"
+              data-umami-event="open-project"
+              data-umami-event-project="token-town"
+            >
+              <span class="media"
+                ><img
+                  src="/p/token-town/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/token-town/loop.mp4 /p/token-town/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="14,450 on the site + 225,046 on X
+published 18 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>239k</b></span
+              >
+              <span class="title">Token Town</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="prismatic"
+            data-date="2026-09-14"
+            data-cat=""
+            data-tags="optics|light"
+            data-size=""
+            data-views="3497"
+            data-x="2669"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/prismatic"
+              data-umami-event="open-project"
+              data-umami-event-project="prismatic"
+            >
+              <span class="media"
+                ><img
+                  src="/p/prismatic/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="828 on the site + 2,669 on X
+published 14 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>3.5k</b></span
+              >
+              <span class="title">Prismatic</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="airace"
+            data-date="2026-09-13"
+            data-cat="Worlds"
+            data-tags="leaderboard|race"
+            data-size="2x1"
+            data-views="90184"
+            data-x="73769"
+          >
+            <a
+              class="hit"
+              href="https://airace.lol"
+              data-umami-event="open-project"
+              data-umami-event-project="airace"
+            >
+              <span class="media"
+                ><img
+                  src="/p/airace/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/airace/loop.mp4 /p/airace/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="16,415 on the site + 73,769 on X
+published 13 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>90k</b></span
+              >
+              <span class="title">AI Race</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="paris-inception"
+            data-date="2026-09-07"
+            data-cat="Worlds"
+            data-tags="city|film"
+            data-size=""
+            data-views="36956"
+            data-x="33373"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/paris-inception"
+              data-umami-event="open-project"
+              data-umami-event-project="paris-inception"
+            >
+              <span class="media"
+                ><img
+                  src="/p/paris-inception/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/paris-inception/loop.mp4 /p/paris-inception/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="3,583 on the site + 33,373 on X
+published 7 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>37k</b></span
+              >
+              <span class="title">Inception&#39;s Paris</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="terraform"
+            data-date="2026-09-06"
+            data-cat=""
+            data-tags="simulation|planet"
+            data-size=""
+            data-views="2443"
+            data-x="660"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/terraform"
+              data-umami-event="open-project"
+              data-umami-event-project="terraform"
+            >
+              <span class="media"
+                ><img
+                  src="/p/terraform/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/terraform/loop.mp4 /p/terraform/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,783 on the site + 660 on X
+published 5 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>2.4k</b></span
+              >
+              <span class="title">Terraform</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="swarm-floor"
+            data-date="2026-09-04"
+            data-cat=""
+            data-tags="logistics|robots"
+            data-size=""
+            data-views="8767"
+            data-x="7416"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/swarm-floor"
+              data-umami-event="open-project"
+              data-umami-event-project="swarm-floor"
+            >
+              <span class="media"
+                ><img
+                  src="/p/swarm-floor/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/swarm-floor/loop.mp4 /p/swarm-floor/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="1,351 on the site + 7,416 on X
+published 4 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>8.8k</b></span
+              >
+              <span class="title">Swarm Floor Logistics</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="dat-city"
+            data-date="2026-07-06"
+            data-cat="Data"
+            data-tags="city|live data"
+            data-size=""
+            data-views="118733"
+            data-x="94285"
+          >
+            <a
+              class="hit"
+              href="https://dat.city"
+              data-umami-event="open-project"
+              data-umami-event-project="dat-city"
+            >
+              <span class="media"
+                ><img
+                  src="/p/dat-city/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+              /></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="24,448 on the site + 94,285 on X
+published 6 Jul 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>119k</b></span
+              >
+              <span class="title">dat.city</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="token-factory"
+            data-date="2026-10-04"
+            data-cat="Data"
+            data-tags="live data|diorama"
+            data-size=""
+            data-views="160"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/token-factory"
+              data-umami-event="open-project"
+              data-umami-event-project="token-factory"
+            >
+              <span class="media"
+                ><img
+                  src="/p/token-factory/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/token-factory/loop.mp4 /p/token-factory/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="160 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">Token Factory</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="mearim-flood"
+            data-date="2026-10-04"
+            data-cat="Explainers"
+            data-tags="water|city"
+            data-size=""
+            data-views="773"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/mearim-flood"
+              data-umami-event="open-project"
+              data-umami-event-project="mearim-flood"
+            >
+              <span class="media"
+                ><img
+                  src="/p/mearim-flood/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/mearim-flood/loop.mp4 /p/mearim-flood/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="773 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">When the Mearim Rises</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="mirror-city"
+            data-date="2026-10-04"
+            data-cat="Data"
+            data-tags="tokens|cost"
+            data-size=""
+            data-views="106"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/mirror-city"
+              data-umami-event="open-project"
+              data-umami-event-project="mirror-city"
+            >
+              <span class="media"
+                ><img
+                  src="/p/mirror-city/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/mirror-city/loop.mp4 /p/mirror-city/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="106 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">The Reflection</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="supertankers"
+            data-date="2026-10-04"
+            data-cat="Data"
+            data-tags="tokens|requests"
+            data-size=""
+            data-views="87"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/supertankers"
+              data-umami-event="open-project"
+              data-umami-event-project="supertankers"
+            >
+              <span class="media"
+                ><img
+                  src="/p/supertankers/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/supertankers/loop.mp4 /p/supertankers/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="87 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">Supertankers and Dinghies</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="long-session"
+            data-date="2026-10-04"
+            data-cat="Data"
+            data-tags="cost|sessions"
+            data-size=""
+            data-views="111"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/long-session"
+              data-umami-event="open-project"
+              data-umami-event-project="long-session"
+            >
+              <span class="media"
+                ><img
+                  src="/p/long-session/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/long-session/loop.webm /p/long-session/loop.mp4"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="111 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">The Long Session</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="token-delta"
+            data-date="2026-10-04"
+            data-cat="Data"
+            data-tags="tokens|models"
+            data-size=""
+            data-views="236"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/token-delta"
+              data-umami-event="open-project"
+              data-umami-event-project="token-delta"
+            >
+              <span class="media"
+                ><img
+                  src="/p/token-delta/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/token-delta/loop.mp4 /p/token-delta/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="236 on the site
+published 4 Oct 2026"
+              ></span>
+              <span class="title">Token Delta</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="speaker-cone"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="sound|physics"
+            data-size=""
+            data-views="523"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/speaker-cone"
+              data-umami-event="open-project"
+              data-umami-event-project="speaker-cone"
+            >
+              <span class="media"
+                ><img
+                  src="/p/speaker-cone/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/speaker-cone/loop.mp4 /p/speaker-cone/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="523 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Speaker Cone</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="siphon-lab"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="fluids|physics"
+            data-size=""
+            data-views="578"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/siphon-lab"
+              data-umami-event="open-project"
+              data-umami-event-project="siphon-lab"
+            >
+              <span class="media"
+                ><img
+                  src="/p/siphon-lab/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/siphon-lab/loop.mp4 /p/siphon-lab/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="578 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Siphon Lab</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="maglev-track"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="magnets|physics"
+            data-size=""
+            data-views="497"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/maglev-track"
+              data-umami-event="open-project"
+              data-umami-event-project="maglev-track"
+            >
+              <span class="media"
+                ><img
+                  src="/p/maglev-track/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/maglev-track/loop.mp4 /p/maglev-track/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="497 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Maglev Track</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="hummingbird-wing"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="biology|flight"
+            data-size=""
+            data-views="379"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/hummingbird-wing"
+              data-umami-event="open-project"
+              data-umami-event-project="hummingbird-wing"
+            >
+              <span class="media"
+                ><img
+                  src="/p/hummingbird-wing/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/hummingbird-wing/loop.mp4 /p/hummingbird-wing/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="379 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Hummingbird Wing</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="lightning-path"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="electricity|weather"
+            data-size=""
+            data-views="685"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/lightning-path"
+              data-umami-event="open-project"
+              data-umami-event-project="lightning-path"
+            >
+              <span class="media"
+                ><img
+                  src="/p/lightning-path/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/lightning-path/loop.mp4 /p/lightning-path/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="685 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Lightning Path</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="ice-cream-crystal"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="chemistry|food"
+            data-size=""
+            data-views="382"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/ice-cream-crystal"
+              data-umami-event="open-project"
+              data-umami-event-project="ice-cream-crystal"
+            >
+              <span class="media"
+                ><img
+                  src="/p/ice-cream-crystal/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/ice-cream-crystal/loop.mp4 /p/ice-cream-crystal/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="382 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Ice Cream Crystal</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="pendulum-rhythm"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="physics|rhythm"
+            data-size=""
+            data-views="462"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/pendulum-rhythm"
+              data-umami-event="open-project"
+              data-umami-event-project="pendulum-rhythm"
+            >
+              <span class="media"
+                ><img
+                  src="/p/pendulum-rhythm/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/pendulum-rhythm/loop.mp4 /p/pendulum-rhythm/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="462 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Pendulum Rhythm</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="aurora-chamber"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="space|weather"
+            data-size=""
+            data-views="494"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/aurora-chamber"
+              data-umami-event="open-project"
+              data-umami-event-project="aurora-chamber"
+            >
+              <span class="media"
+                ><img
+                  src="/p/aurora-chamber/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/aurora-chamber/loop.mp4 /p/aurora-chamber/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="494 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Aurora Chamber</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="tidal-clock"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="astronomy|water"
+            data-size=""
+            data-views="434"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/tidal-clock"
+              data-umami-event="open-project"
+              data-umami-event-project="tidal-clock"
+            >
+              <span class="media"
+                ><img
+                  src="/p/tidal-clock/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/tidal-clock/loop.mp4 /p/tidal-clock/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="434 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Tidal Clock</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="window-draft"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="heat|buildings"
+            data-size=""
+            data-views="537"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/window-draft"
+              data-umami-event="open-project"
+              data-umami-event-project="window-draft"
+            >
+              <span class="media"
+                ><img
+                  src="/p/window-draft/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/window-draft/loop.mp4 /p/window-draft/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="537 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Window Draft</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="compass-field"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="magnets|navigation"
+            data-size=""
+            data-views="468"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/compass-field"
+              data-umami-event="open-project"
+              data-umami-event-project="compass-field"
+            >
+              <span class="media"
+                ><img
+                  src="/p/compass-field/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/compass-field/loop.mp4 /p/compass-field/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="468 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Compass Field</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="skate-blade"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="friction|ice"
+            data-size=""
+            data-views="482"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/skate-blade"
+              data-umami-event="open-project"
+              data-umami-event-project="skate-blade"
+            >
+              <span class="media"
+                ><img
+                  src="/p/skate-blade/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/skate-blade/loop.mp4 /p/skate-blade/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="482 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Skate Blade</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="wind-tunnel"
+            data-date="2026-09-27"
+            data-cat="Explainers"
+            data-tags="aerodynamics|cars"
+            data-size=""
+            data-views="550"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/wind-tunnel"
+              data-umami-event="open-project"
+              data-umami-event-project="wind-tunnel"
+            >
+              <span class="media"
+                ><img
+                  src="/p/wind-tunnel/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/wind-tunnel/loop.mp4 /p/wind-tunnel/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="550 on the site
+published 27 Sept 2026"
+              ></span>
+              <span class="title">Cheat the Wind</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="diff"
+            data-date="2026-09-25"
+            data-cat="Explainers"
+            data-tags="mechanics|cars"
+            data-size=""
+            data-views="758"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/diff"
+              data-umami-event="open-project"
+              data-umami-event-project="diff"
+            >
+              <span class="media"
+                ><img
+                  src="/p/diff/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/diff/loop.mp4 /p/diff/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="758 on the site
+published 25 Sept 2026"
+              ></span>
+              <span class="title">Two Wheels, One Engine</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+          <article
+            class="card"
+            data-slug="sky"
+            data-date="2026-09-08"
+            data-cat="Worlds"
+            data-tags="ambient|sky"
+            data-size=""
+            data-views="3796"
+          >
+            <a
+              class="hit"
+              href="https://sael.net/sky"
+              data-umami-event="open-project"
+              data-umami-event-project="sky"
+            >
+              <span class="media"
+                ><img
+                  src="/p/sky/poster.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async" /><video
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                  data-src="/p/sky/loop.mp4 /p/sky/loop.webm"
+                ></video
+              ></span>
+              <span class="shade" aria-hidden="true"></span>
+              <span
+                class="views"
+                title="3,796 on the site
+published 8 Sept 2026"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" /></svg
+                ><b>3.8k</b></span
+              >
+              <span class="title">Sky</span>
+              <span class="go" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7M9 7h8v8" /></svg
+              ></span>
+            </a>
+          </article>
+        </div>
+      </main>
+
+      <div class="say" id="say" aria-hidden="true">
+        <div
+          class="sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="say-h"
+        >
+          <div class="head">
+            <h2 id="say-h">What should exist next?</h2>
+            <p class="lede"
+              >A topic, an app, a change, anything. The more you tell me the
+              better I can build it, though a line is welcome too.</p
+            >
+            <button class="x" type="button" aria-label="Close">✕</button>
+          </div>
+          <form id="say-f" novalidate>
+            <fieldset>
+              <legend>You are</legend>
+              <div class="who">
+                <label
+                  ><input type="radio" name="who" value="a developer" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <path d="m8 7-5 5 5 5M16 7l5 5-5 5" /></svg
+                    >Developer</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="who" value="a teacher" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <rect x="3" y="3.5" width="18" height="12.5" rx="1.2" />
+                      <path d="M7 7.5h7M7 11h4" />
+                      <path d="M12 16v2M8.5 21.5 12 18l3.5 3.5" /></svg
+                    >Teacher</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="who" value="a student" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <path d="m12 4 9 5-9 5-9-5 9-5Z" />
+                      <path d="M7 11v5c0 1 2.2 2.5 5 2.5s5-1.5 5-2.5v-5" /></svg
+                    >Student</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="who" value="a scientist" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <path
+                        d="M9 3v6l-5 9a2 2 0 0 0 1.8 3h12.4A2 2 0 0 0 20 18l-5-9V3M8 3h8M7.5 14h9"
+                      /></svg
+                    >Scientist</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="who" value="a designer" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <path
+                        d="M4 20 8.5 6.2a1 1 0 0 1 .6-.6l4.6-1.5a1 1 0 0 1 1.1.3l4.2 4.9a1 1 0 0 1 .1 1.1l-2.3 4.3a1 1 0 0 1-.6.5L4 20Z"
+                      />
+                      <path d="m4 20 7.3-7.3" />
+                      <circle cx="12.8" cy="11.2" r="1.6" /></svg
+                    >Designer</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="who" value="just curious" /><span
+                    ><svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="9" />
+                      <path
+                        d="M9.2 9.4a2.9 2.9 0 1 1 3.9 2.7c-.7.3-1.1.9-1.1 1.6v.5"
+                      />
+                      <circle
+                        cx="12"
+                        cy="17.4"
+                        r=".85"
+                        fill="currentColor"
+                        stroke="none"
+                      /></svg
+                    >Curious</span
+                  ></label
+                >
+              </div>
+              <div class="who2" id="say-who2w" hidden>
+                <input
+                  type="text"
+                  id="say-who2"
+                  placeholder="What do you do?"
+                  maxlength="60"
+                  autocomplete="organization-title"
+                />
+                <span class="cap">Optional. I am curious about you too.</span>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>What would help you?</legend>
+              <textarea
+                id="say-msg"
+                rows="4"
+                maxlength="2000"
+                aria-label="Your idea"
+              ></textarea>
+              <p class="hint" id="say-hint"
+                >What you would use it for, what is missing, what you are stuck
+                on.</p
+              >
+            </fieldset>
+            <fieldset>
+              <legend>Name and email<em>, both optional</em></legend>
+              <div class="pair">
+                <input
+                  type="text"
+                  id="say-name"
+                  placeholder="Your name"
+                  maxlength="60"
+                  autocomplete="name"
+                />
+                <input
+                  type="email"
+                  id="say-mail"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  inputmode="email"
+                />
+              </div>
+            </fieldset>
+            <div class="opts">
+              <div class="opt">
+                <label class="okbox"
+                  ><input type="checkbox" id="say-share" /><span
+                    class="box"
+                  ></span
+                  ><span class="t"
+                    ><b>Ryan can post about this idea on X.</b> Never your
+                    email.</span
+                  ></label
+                >
+                <div class="more" id="say-xhw" hidden>
+                  <span class="at"
+                    ><input
+                      type="text"
+                      id="say-xh"
+                      placeholder="your X handle"
+                      maxlength="40"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      aria-label="Your X handle"
+                  /></span>
+                  <span class="cap"
+                    >Optional, so I can tag you when I post it.</span
+                  >
+                </div>
+              </div>
+              <div class="opt">
+                <label class="okbox"
+                  ><input type="checkbox" id="say-news" /><span
+                    class="box"
+                  ></span
+                  ><span class="t"
+                    ><b>Send me the newsletter.</b> A few emails a year, when
+                    something new is built.</span
+                  ></label
+                >
+                <div class="more" id="say-newsw" hidden
+                  ><span class="cap need"
+                    >Add your email above and you are on the list.</span
+                  ></div
+                >
+              </div>
+            </div>
+            <div class="pot" aria-hidden="true"
+              ><label
+                >Website<input
+                  type="text"
+                  id="say-pot"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off" /></label
+            ></div>
+            <p class="err" id="say-err" hidden></p>
+            <div class="foot">
+              <button class="cta send" type="submit" id="say-send" disabled
+                >Send</button
+              >
+            </div>
+            <p class="note"
+              >This lands in my inbox and nowhere else. You only join the
+              <a href="/newsletter">newsletter</a> if you tick the box.</p
+            >
+          </form>
+          <div class="done" id="say-done" hidden>
+            <div class="tick">✓</div>
+            <h3>Got it, thank you</h3>
+            <p id="say-done-p">I read every one of these myself.</p>
+            <div class="row">
+              <a
+                class="cta"
+                href="https://x.com/ryansael"
+                target="_blank"
+                rel="noopener"
+                data-umami-event="say-follow"
+                >Follow on X</a
+              >
+              <a class="cta second" href="/newsletter">Hear when it ships</a>
+              <button class="cta second" type="button" id="say-close2"
+                >Back to the works</button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/design/app.js"></script>
+  </body>
+</html>
