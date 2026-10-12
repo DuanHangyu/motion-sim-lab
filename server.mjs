@@ -1,6 +1,6 @@
 import http from 'node:http';
 import { createReadStream } from 'node:fs';
-import { appendFile, mkdir, readFile, stat } from 'node:fs/promises';
+import { appendFile, mkdir, readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
@@ -9,6 +9,14 @@ import { WebSocketServer, WebSocket } from 'ws';
 const base = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(process.env.SITE_ROOT || path.join(base, 'site'));
 const dataDirectory = path.resolve(process.env.DATA_DIR || path.join(base, 'data'));
+const publicBasePath = (process.env.PUBLIC_BASE_PATH || '').replace(/\/$/,'');
+if (publicBasePath && !/^\/[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]+)*$/.test(publicBasePath)) throw new Error('Invalid PUBLIC_BASE_PATH');
+const publicRoots = [...await readdir(root),'runtime'];
+const rootURLs = new RegExp('(["\'`])/(?:'+publicRoots.map(name=>name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?=[/?#\\s"\'`<>)]|$)','g');
+function rebaseURLs(source) {
+  if (!publicBasePath) return source;
+  return source.replace(rootURLs,match=>match[0]+publicBasePath+match.slice(1));
+}
 const types = { '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.mjs':'application/javascript; charset=utf-8', '.md':'text/plain; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.webp':'image/webp', '.png':'image/png', '.jpg':'image/jpeg', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.ttf':'font/ttf', '.mp4':'video/mp4', '.webm':'video/webm', '.csv':'text/csv', '.txt':'text/plain; charset=utf-8' };
 const rooms = new Map();
 const limits = new Map();
@@ -52,23 +60,31 @@ async function submission(req, res) {
 }
 
 export function localizeHTML(html) {
-  return html.replace(/https:\/\/sael\.net(?=[/"'])/g,'')
+  const content=html.replace(/https:\/\/sael\.net(?=[/"'])/g,'')
     .replace(/https:\/\/cdn\.jsdelivr\.net\/npm\/three@([^/]+)\//g,'/vendor/three-$1/')
     .replace(/https:\/\/fonts\.googleapis\.com\/css2\?[^"<>]+/g,url=>fontMap[url.replaceAll('&amp;','&')] || url)
     .replace(/<script\b[^>]*src=["']https:\/\/dat\.d1\.tel\/script\.js["'][^>]*>\s*<\/script>/gi,'')
     .replace(/new WebSocket\("wss:\/\/" \+ HOST \+ "\/runtime\/session"\)/g,'new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/runtime/session")')
     .replace(/<head([^>]*)>/i,'<head$1><script src="/recovery-runtime.js"></script>');
+  return rebaseURLs(content)
+    .replace(/\b(href|action)=(['"])\/\2/g,(_,attribute,quote)=>attribute+'='+quote+publicBasePath+'/'+quote)
+    .replace(/<head([^>]*)>/i,'<head$1><meta name="motion-sim-base" content="'+publicBasePath+'">');
 }
 
 function localizeScript(source) {
-  return source.replaceAll('https://sael.net/', '/')
+  return rebaseURLs(source.replaceAll('https://sael.net/', '/')
     .replace(/https:\/\/cdn\.jsdelivr\.net\/npm\/three@([^/]+)\//g,'/vendor/three-$1/')
-    .replace(/https:\/\/fonts\.googleapis\.com\/css2\?[^"'<>]+/g,url=>fontMap[url.replaceAll('&amp;','&')] || url);
+    .replace(/https:\/\/fonts\.googleapis\.com\/css2\?[^"'<>]+/g,url=>fontMap[url.replaceAll('&amp;','&')] || url));
 }
 
 export const server = http.createServer(async (req,res) => {
   try {
     const url = new URL(req.url,'http://localhost');
+    if (publicBasePath) {
+      if (url.pathname===publicBasePath) {res.writeHead(308,{Location:publicBasePath+'/'+url.search});return res.end();}
+      if (!url.pathname.startsWith(publicBasePath+'/')) return json(res,404,{error:'Not found'});
+      url.pathname=url.pathname.slice(publicBasePath.length);
+    }
     if (req.method === 'POST' && url.pathname === '/api/say') return await submission(req,res);
     if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405, {'Allow':'GET, HEAD'}); return res.end(); }
     if (url.pathname === '/api/where') return json(res,200,{c:process.env.LOCAL_COUNTRY || ''});
@@ -79,10 +95,16 @@ export const server = http.createServer(async (req,res) => {
     let file = path.resolve(root, '.' + pathname);
     if (file !== root && !file.startsWith(root + path.sep)) return json(res,403,{error:'Invalid path'});
     let info;
-    try { info = await stat(file); } catch { return json(res,404,{error:'Not found',path:pathname}); }
+    try { info = await stat(file); } catch {
+      const preview=/^\/([\w-]+)\/((?:poster\.(?:webp|jpg|png)|(?:loop|also)\.(?:mp4|webm|jpg)))$/.exec(pathname);
+      if (!preview) return json(res,404,{error:'Not found',path:pathname});
+      const slug=preview[1]==='ai-mall' ? 'token-town' : preview[1];
+      file=path.join(root,'p',slug,preview[2]);
+      try { info=await stat(file); } catch { return json(res,404,{error:'Not found',path:pathname}); }
+    }
     if (info.isDirectory()) {
       const isCategory = ['explainers','worlds','data','design','play','virtual-tour','newsletter'].includes(pathname.replaceAll('/',''));
-      if (!pathname.endsWith('/') && !isCategory) {res.writeHead(308,{Location:pathname+'/'+url.search});return res.end();}
+      if (!pathname.endsWith('/') && !isCategory) {res.writeHead(308,{Location:publicBasePath+pathname+'/'+url.search});return res.end();}
       file = path.join(file,'index.html'); info=await stat(file);
     }
     const extension=path.extname(file);
@@ -95,12 +117,17 @@ export const server = http.createServer(async (req,res) => {
       return res.end(content);
     }
     if (pathname === '/works.json') {
-      const origin=`http${req.socket.encrypted?'s':''}://${req.headers.host}`;
-      const content=(await readFile(file,'utf8')).replaceAll('https://sael.net/',origin+'/');
+      const origin=process.env.PUBLIC_ORIGIN ? new URL(process.env.PUBLIC_ORIGIN).origin : `http${req.socket.encrypted?'s':''}://${req.headers.host}`;
+      const content=(await readFile(file,'utf8')).replaceAll('https://sael.net/',origin+publicBasePath+'/');
       return res.end(req.method === 'HEAD' ? '' : content);
     }
-    if (extension === '.js') {
-      const source=localizeScript(await readFile(file,'utf8'));
+    if (extension === '.js' || extension === '.mjs') {
+      const original=await readFile(file,'utf8');
+      const source=pathname==='/recovery-runtime.js' ? original : localizeScript(original);
+      return res.end(req.method === 'HEAD' ? '' : source);
+    }
+    if (extension === '.css' && publicBasePath) {
+      const source=rebaseURLs(await readFile(file,'utf8')).replace(/url\(\/(?!\/)/g,'url('+publicBasePath+'/');
       return res.end(req.method === 'HEAD' ? '' : source);
     }
     res.setHeader('Accept-Ranges','bytes');
@@ -130,7 +157,7 @@ function refresh(room) {
 server.on('upgrade',(req,socket,head)=>{
   let origin;
   try {origin = req.headers.origin && new URL(req.headers.origin).host;} catch {socket.destroy();return;}
-  if(req.url!=='/runtime/session' || (origin && origin!==req.headers.host)){socket.destroy();return;}
+  if(req.url!==publicBasePath+'/runtime/session' || (origin && origin!==req.headers.host)){socket.destroy();return;}
   sockets.handleUpgrade(req,socket,head,ws=>sockets.emit('connection',ws,req));
 });
 sockets.on('connection',ws=>{

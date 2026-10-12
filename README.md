@@ -4,6 +4,12 @@
 
 ![Gigacity 城市生成与飞行演示](site/p/gigacity/poster.webp)
 
+## 在线演示
+
+打开 **[Motion Sim Lab 在线演示](https://47.104.158.24/motion-sim-lab/)**，无需安装即可浏览和操作。也可以直接打开[城市生成](https://47.104.158.24/motion-sim-lab/gigacity/)、[肥皂膜实验室](https://47.104.158.24/motion-sim-lab/soap-bubble/)或[提示词实验室](https://47.104.158.24/motion-sim-lab/prompt-lab/)。
+
+在线站点通过 HTTPS 提供服务。WebGPU 作品仍需要浏览器和设备支持 WebGPU；实时数据作品需要能够连接对应的公开数据服务。
+
 ## 你可以体验什么
 
 - **探索场景**：旋转、缩放、拖动和切换相机视角，观察城市、建筑和微观世界。
@@ -59,6 +65,22 @@ npm run dev
 ```
 
 可通过 `PORT`、`HOST` 调整本地服务地址。开发服务默认只监听本机。
+
+## 部署到现有服务器
+
+服务支持独立端口和路径部署，适合与其他项目共用服务器：
+
+```sh
+HOST=127.0.0.1 PORT=18473 \
+PUBLIC_ORIGIN=https://your.example \
+PUBLIC_BASE_PATH=/motion-sim-lab \
+DATA_DIR=/srv/motion-sim-lab/shared/data \
+node server.mjs
+```
+
+`PUBLIC_ORIGIN` 指定浏览器使用的公开来源地址；`PUBLIC_BASE_PATH` 指定独立路径，不设置时按网站根路径运行。反向代理将 `/motion-sim-lab/` 请求（保留此前缀）转发到独立服务端口，并转发 WebSocket Upgrade 和原始 Host。网页、资源、作品列表、分类导航和实时连接均适配该路径。
+
+如果程序入口经过 `current` 符号链接，启动时使用 `node --preserve-symlinks-main /srv/motion-sim-lab/current/server.mjs`。在线部署由独立系统服务管理，开机启动，并限制 CPU 和内存；HTTPS 使用服务器现有的有效证书和自动续期机制。
 
 ## 前端与数据依赖
 

@@ -29,6 +29,19 @@ test('internal links and original rendering module are served locally',async()=>
   assert.ok(works.works.find(w=>w.slug==='soap-bubble').url.startsWith(origin));
 });
 
+test('HTTPS deployment keeps gallery navigation on the configured public origin',async()=>{
+  const previous=process.env.PUBLIC_ORIGIN;
+  process.env.PUBLIC_ORIGIN='https://example.invalid:8446';
+  try {
+    const works=await(await fetch(origin+'/works.json')).json();
+    assert.equal(works.works.find(w=>w.slug==='soap-bubble').url,'https://example.invalid:8446/soap-bubble');
+    assert.ok(works.works.some(w=>!w.url.startsWith('https://example.invalid:8446/')),'external works keep their original URLs');
+  } finally {
+    if(previous===undefined)delete process.env.PUBLIC_ORIGIN;
+    else process.env.PUBLIC_ORIGIN=previous;
+  }
+});
+
 test('video range reads provide real bytes and reject impossible ranges',async()=>{
   const url=origin+'/p/soap-bubble/loop.mp4';
   const r=await fetch(url,{headers:{Range:'bytes=0-99'}});
