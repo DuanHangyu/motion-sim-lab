@@ -203,8 +203,11 @@ function lay() {
   const cards = all.filter((c) => !c.hidden);
   // in All, a work that has not been posted on X yet sits below the ones that have
   const sunk = (c) => (!cat && !c.dataset.x ? 1 : 0);
+  // Keep teaching labs after the original visual simulations in All.
+  const teaching = (c) => !cat && c.dataset.cat === "教学实验" ? 1 : 0;
   cards.sort(
     (a, b) =>
+      teaching(a) - teaching(b) ||
       sunk(a) - sunk(b) ||
       (sort === "views"
         ? b.dataset.views - a.dataset.views

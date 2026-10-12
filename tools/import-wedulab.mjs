@@ -61,7 +61,8 @@ for (const category of pages) {
   if (!html.includes('data-filter="教学实验"')) {
     html = html.replace('All<b>58</b>', 'All<b>80</b>');
     html = html.replace('</nav', '<a href="/education" class="cat-link" data-filter="教学实验">教学实验<b>22</b></a></nav');
-    html = html.replace('<div class="grid">', '<div class="grid">\n'+cards);
+    const end = html.lastIndexOf('</article>') + '</article>'.length;
+    html = html.slice(0, end) + '\n' + cards + html.slice(end);
     await writeFile(file, html);
   }
   const script = path.join(repo, 'site', category, 'app.js');
@@ -78,7 +79,7 @@ await writeFile(path.join(repo, 'site/education/app.js'), text);
 const worksFile = path.join(repo, 'site/works.json');
 const works = JSON.parse(await readFile(worksFile, 'utf8'));
 works.works = works.works.filter(work => !work.slug.startsWith('wedu-'));
-works.works.unshift(...labs.map(lab => ({ slug:'wedu-'+lab.id, title:lab.name, url:'https://sael.net/wedulab'+lab.href+'/?lang=zh-CN', date:'2026-10-13', cat:'教学实验', poster:'https://sael.net/wedulab/previews/'+lab.id+'.svg', views:0, site:0, x:0, posts:[] })));
+works.works.push(...labs.map(lab => ({ slug:'wedu-'+lab.id, title:lab.name, url:'https://sael.net/wedulab'+lab.href+'/?lang=zh-CN', date:'2026-10-13', cat:'教学实验', poster:'https://sael.net/wedulab/previews/'+lab.id+'.svg', views:0, site:0, x:0, posts:[] })));
 await writeFile(worksFile, JSON.stringify(works, null, 1)+'\n');
 await writeFile(path.join(target, 'source.json'), JSON.stringify({ repository:'https://github.com/DuanHangyu/wedulab-recovered', commit:'4b7482a0f14da828612b4334bde759460c09dd90', frontendOnly:true, labs:labs.map(({id,name,subject,href,desc}) => ({id,name,subject,href,desc})) }, null, 2)+'\n');
 console.log(`Imported ${labs.length} interactive teaching labs.`);
